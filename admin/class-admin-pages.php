@@ -2,14 +2,14 @@
 /**
  * New admin pages and admin screen modification.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    TY_Plugin
  * @subpackage Admin
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Plugin\Admin;
+namespace TY_Plugin\Admin;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -57,18 +57,15 @@ class Admin_Pages {
 	 */
     public function __construct() {
 
-        // Add an about page for the plugin.
-        add_action( 'admin_menu', [ $this, 'about_plugin' ] );
-
         // Add admin header.
-        if ( ccp_acf_options() ) {
+        if ( typ_acf_options() ) {
 
             // If the ACF free plus the Options Page addon or Pro plugin is active.
-            $admin_header = get_field( 'ccp_use_admin_header', 'option' );
+            $admin_header = get_field( 'typ_use_admin_header', 'option' );
         } else {
 
             // Otherwise look for the WP API setting.
-            $admin_header = get_option( 'ccp_use_admin_header' );
+            $admin_header = get_option( 'typ_use_admin_header' );
         }
 
         // If admin header option s selected.
@@ -112,237 +109,6 @@ class Admin_Pages {
     }
 
     /**
-     * Add an about page for the plugin.
-     *
-     * Uses the universal slug partial for admin pages. Set this
-     * slug in the core plugin file.
-     *
-     * Adds a contextual help section.
-     *
-     * @since  1.0.0
-	 * @access public
-	 * @return void
-     *
-     * @todo   Sync up the ACF and WP menu position settings.
-     */
-    public function about_plugin() {
-
-        /**
-         * Get the menu position of the plugin page.
-         *
-         * @since  1.0.0
-         * @return bool Returns true or false for both ACF field and WP field.
-         */
-
-        // If ACF is active, get the field from the ACF options page.
-        if ( ccp_acf_options() ) {
-
-            // Get the field.
-            $acf_position = get_field( 'ccp_site_plugin_link_position', 'option' );
-
-            // Return true if the field is set to `top`.
-            if ( 'top' == $acf_position ) {
-                $position = true;
-
-            // Otherwise return `false`.
-            } else {
-                $position = false;
-            }
-
-        // If ACF is not active, get the field from the WordPress/ClassicPress options page.
-        } else {
-
-            // Get the field.
-            $position = get_option( 'ccp_site_plugin_link_position' );
-        }
-
-        /**
-         * Get the menu label for the plugin page.
-         *
-         * @since  1.0.0
-         * @return string Returns the text of the label.
-         */
-
-        // If ACF is active, get the field from the ACF options page.
-        if ( ccp_acf_options() ) {
-
-            // Get the field.
-            $link_label = get_field( 'ccp_site_plugin_link_label', 'option' );
-
-        // If ACF is not active, get the field from the WordPress/ClassicPress options page.
-        } else {
-
-            // Get the field.
-            $link_label = sanitize_text_field( get_option( 'ccp_site_plugin_link_label' ) );
-        }
-
-        // If one of the label fields above is not empty the use that label.
-        if ( $link_label ) {
-            $label = $link_label;
-
-        // Otherwise use Site Plugin as the label.
-        }  else {
-            $label = __( 'Site Plugin', 'controlled-chaos-plugin' );
-        }
-
-        /**
-         * Get the menu icon for the plugin page.
-         *
-         * Applies only if menu position is set to top level.
-         *
-         * @since  1.0.0
-         * @return string Returns a CSS class of Dashicons icon.
-         */
-
-        // If ACF is active, get the field from the ACF options page.
-        if ( ccp_acf_options() ) {
-
-            // Get the field.
-            $link_icon  = get_field( 'ccp_site_plugin_link_icon', 'option' );
-
-        // If ACF is not active, get the field from the WordPress/ClassicPress options page.
-        } else {
-
-            // Get the field.
-            $link_icon  = sanitize_text_field( get_option( 'ccp_site_plugin_link_icon' ) );
-        }
-
-        // If one of the icon fields above is not empty the use that CSS class.
-        if ( $link_icon ) {
-            $icon = $link_icon;
-
-        // Otherwise use the scholar's cap icon to imply instruction.
-        }  else {
-            $icon = __( 'dashicons-welcome-learn-more', 'controlled-chaos-plugin' );
-        }
-
-        if ( true == $position ) {
-            $this->help_about_plugin = add_menu_page(
-                $label,
-                $label,
-                'manage_options',
-                CCP_ADMIN_SLUG . '-page',
-                [ $this, 'about_plugin_output' ],
-                $icon,
-                3
-            );
-        } else {
-            $this->help_about_plugin = add_submenu_page(
-                'plugins.php',
-                $label,
-                $label,
-                'manage_options',
-                CCP_ADMIN_SLUG . '-page',
-                [ $this, 'about_plugin_output' ]
-            );
-        }
-
-        // Add content to the Help tab.
-		add_action( 'load-' . $this->help_about_plugin, [ $this, 'help_about_plugin' ] );
-
-    }
-
-    /**
-     * Get output of the about page for the plugin.
-     *
-     * @since  1.0.0
-	 * @access public
-	 * @return void
-     */
-    public function about_plugin_output() {
-
-        require CCP_PATH . 'admin/partials/plugin-page-about.php';
-
-    }
-
-    /**
-     * Add tabs to the about page contextual help section.
-	 *
-	 * @since      1.0.0
-     */
-    public function help_about_plugin() {
-
-		// Add to the about page.
-		$screen = get_current_screen();
-		if ( $screen->id != $this->help_about_plugin ) {
-			return;
-		}
-
-		// More information tab.
-		$screen->add_help_tab( [
-			'id'       => 'help_plugin_info',
-			'title'    => __( 'More Information', 'controlled-chaos-plugin' ),
-			'content'  => null,
-			'callback' => [ $this, 'help_plugin_info' ]
-		] );
-
-        // Convert plugin tab.
-		$screen->add_help_tab( [
-			'id'       => 'help_convert_plugin',
-			'title'    => __( 'Convert Plugin', 'controlled-chaos-plugin' ),
-			'content'  => null,
-			'callback' => [ $this, 'help_convert_plugin' ]
-		] );
-
-        // Add a help sidebar.
-		$screen->set_help_sidebar(
-			$this->help_about_page_sidebar()
-		);
-
-    }
-
-    /**
-     * Get more information help tab content.
-	 *
-	 * @since      1.0.0
-     */
-	public function help_plugin_info() {
-
-		include_once CCP_PATH . 'admin/partials/help/help-plugin-info.php';
-
-    }
-
-    /**
-     * Get convert plugin help tab content.
-	 *
-	 * @since      1.0.0
-     */
-	public function help_convert_plugin() {
-
-		include_once CCP_PATH . 'admin/partials/help/help-plugin-convert.php';
-
-    }
-
-    /**
-     * The about page contextual tab sidebar content.
-	 *
-	 * @since      1.0.0
-     */
-    public function help_about_page_sidebar() {
-
-        $html  = sprintf( '<h4>%1s</h4>', __( 'Author Credits', 'controlled-chaos-plugin' ) );
-        $html .= sprintf(
-            '<p>%1s %2s.</p>',
-            __( 'This plugin was originally written by', 'controlled-chaos-plugin' ),
-            'Greg Sweet'
-        );
-        $html .= sprintf(
-            '<p>%1s <br /><a href="%2s" target="_blank">%3s</a> <br />%4s</p>',
-            __( 'Visit:', 'controlled-chaos-plugin' ),
-            'http://ccdzine.com/',
-            'Controlled Chaos Design',
-            __( 'for more free downloads.', 'controlled-chaos-plugin' )
-        );
-        $html .= sprintf(
-            '<p>%1s</p>',
-            __( 'Change this sidebar to give yourself credit for the hard work you did customizing this plugin.', 'controlled-chaos-plugin' )
-         );
-
-		return $html;
-
-    }
-
-    /**
 	 * Register admin menu if the admin header option is selected.
 	 *
 	 * @since  1.0.0
@@ -352,7 +118,7 @@ class Admin_Pages {
 	public function admin_menus() {
 
 		register_nav_menus( [
-			'admin-header' => __( 'Admin Header Menu', 'controlled-chaos-plugin' )
+			'admin-header' => __( 'Admin Header Menu', 'ty-plugin' )
 		] );
 
 	}
@@ -374,7 +140,7 @@ class Admin_Pages {
 		if ( ! empty( $admin_header ) ) {
 			get_template_part( 'template-parts/admin/admin-header' );
 		} else {
-			include_once CCP_PATH . 'admin/partials/admin-header.php';
+			include_once TYP_PATH . 'admin/partials/admin-header.php';
 		}
 
     }
@@ -422,14 +188,14 @@ class Admin_Pages {
         // $style .= '.edit-post-header { position: sticky }';
         // $style .= '.edit-post-layout { padding-top: 0; }';
         // $style .= '.edit-post-sidebar { top: 32px; }';
-        $style .= '.gutenberg-editor-page .ccp-admin-header { padding-left: 20px; }';
-        $style .= '.gutenberg-editor-page .ccp-admin-header:before { content: ""; display: block; width: 100%; height: 56px; }';
+        $style .= '.gutenberg-editor-page .typ-admin-header { padding-left: 20px; }';
+        $style .= '.gutenberg-editor-page .typ-admin-header:before { content: ""; display: block; width: 100%; height: 56px; }';
 
         // End the style block.
         $style .= '</style>';
 
         // Apply a filter for custom admin themeing.
-        $style = apply_filters( 'ccp_admin_header_layout', $style );
+        $style = apply_filters( 'typ_admin_header_layout', $style );
 
         // Render all styles.
         echo $style;
@@ -456,11 +222,11 @@ class Admin_Pages {
 
         // Post type: post.
         if ( 'post' == $screen->post_type ) {
-            $post_title = esc_html__( 'Post Title', 'controlled-chaos-plugin' );
+            $post_title = esc_html__( 'Post Title', 'ty-plugin' );
 
         // Post type: page.
         } elseif ( 'page' == $screen->post_type ) {
-            $post_title = esc_html__( 'Page Title', 'controlled-chaos-plugin' );
+            $post_title = esc_html__( 'Page Title', 'ty-plugin' );
 
         // Post type: attachment.
         } elseif ( $screen->post_type == 'attachment' ) {
@@ -468,11 +234,11 @@ class Admin_Pages {
 
         // Post type: custom, unidentified.
         } else {
-            $post_title = esc_html__( 'Enter Title', 'controlled-chaos-plugin' );
+            $post_title = esc_html__( 'Enter Title', 'ty-plugin' );
         }
 
         // Apply a filter conditional modification.
-        $title = apply_filters( 'ccp_post_title_placeholders', $post_title );
+        $title = apply_filters( 'typ_post_title_placeholders', $post_title );
 
         // Return the new placeholder.
         return $title;
@@ -581,7 +347,7 @@ class Admin_Pages {
         $size  = 'Column Thumbnail';
 
         // Apply a filter for conditional modification.
-        $thumb = apply_filters( 'ccp_column_thumbnail_size', $size );
+        $thumb = apply_filters( 'typ_column_thumbnail_size', $size );
 
         // If there is an ID (if the post has a featured image).
         if ( $post_thumbnail_id ) {
@@ -607,10 +373,10 @@ class Admin_Pages {
     public function image_column_head( $defaults ) {
 
         // The column heading name.
-        $name    = __( 'Featured Image', 'controlled-chaos-plugin' );
+        $name    = __( 'Featured Image', 'ty-plugin' );
 
         // Apply a filter for conditional modification.
-        $heading = apply_filters( 'ccp_image_column_head', $name );
+        $heading = apply_filters( 'typ_image_column_head', $name );
 
         // The column heading name to new `featured_image` column.
         $defaults['featured_image'] = esc_html__( $heading );
@@ -667,11 +433,11 @@ class Admin_Pages {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_admin_pages() {
+function typ_admin_pages() {
 
 	return Admin_Pages::instance();
 
 }
 
 // Run an instance of the class.
-ccp_admin_pages();
+typ_admin_pages();

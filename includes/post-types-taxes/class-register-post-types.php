@@ -2,7 +2,7 @@
 /**
  * Register post types.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    TY_Plugin
  * @subpackage Includes\Post_Types_Taxes
  *
  * @since      1.0.0
@@ -11,7 +11,7 @@
  * @link       https://codex.wordpress.org/Function_Reference/register_post_type
  */
 
-namespace CC_Plugin\Includes\Post_Types_Taxes;
+namespace TY_Plugin\Includes\Post_Types_Taxes;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -54,100 +54,134 @@ final class Post_Types_Register {
     public function register() {
 
         /**
-         * Post Type: Sample custom post (Custom Posts).
-         *
-         * Renaming:
-         * Search case "Custom Post" and replace with your post type capitalized name.
-         * Search case "custom post" and replace with your post type lowercase name.
-         * Search case "ccp_post_type" and replace with your post type database name.
-         * Search case "custom-posts" and replace with your post type archive permalink slug.
-         */
+		 * Post Type: Film+TV.
+		 */
 
-        $labels = [
-            'name'                  => __( 'Custom Posts', 'controlled-chaos-plugin' ),
-            'singular_name'         => __( 'Custom Post', 'controlled-chaos-plugin' ),
-            'menu_name'             => __( 'Custom Posts', 'controlled-chaos-plugin' ),
-            'all_items'             => __( 'All Custom Posts', 'controlled-chaos-plugin' ),
-            'add_new'               => __( 'Add New', 'controlled-chaos-plugin' ),
-            'add_new_item'          => __( 'Add New Custom Post', 'controlled-chaos-plugin' ),
-            'edit_item'             => __( 'Edit Custom Post', 'controlled-chaos-plugin' ),
-            'new_item'              => __( 'New Custom Post', 'controlled-chaos-plugin' ),
-            'view_item'             => __( 'View Custom Post', 'controlled-chaos-plugin' ),
-            'view_items'            => __( 'View Custom Posts', 'controlled-chaos-plugin' ),
-            'search_items'          => __( 'Search Custom Posts', 'controlled-chaos-plugin' ),
-            'not_found'             => __( 'No Custom Posts Found', 'controlled-chaos-plugin' ),
-            'not_found_in_trash'    => __( 'No Custom Posts Found in Trash', 'controlled-chaos-plugin' ),
-            'parent_item_colon'     => __( 'Parent Custom Post', 'controlled-chaos-plugin' ),
-            'featured_image'        => __( 'Featured image for this custom post', 'controlled-chaos-plugin' ),
-            'set_featured_image'    => __( 'Set featured image for this custom post', 'controlled-chaos-plugin' ),
-            'remove_featured_image' => __( 'Remove featured image for this custom post', 'controlled-chaos-plugin' ),
-            'use_featured_image'    => __( 'Use as featured image for this custom post', 'controlled-chaos-plugin' ),
-            'archives'              => __( 'Custom Post archives', 'controlled-chaos-plugin' ),
-            'insert_into_item'      => __( 'Insert into Custom Post', 'controlled-chaos-plugin' ),
-            'uploaded_to_this_item' => __( 'Uploaded to this Custom Post', 'controlled-chaos-plugin' ),
-            'filter_items_list'     => __( 'Filter Custom Posts', 'controlled-chaos-plugin' ),
-            'items_list_navigation' => __( 'Custom Posts list navigation', 'controlled-chaos-plugin' ),
-            'items_list'            => __( 'Custom Posts List', 'controlled-chaos-plugin' ),
-            'attributes'            => __( 'Custom Post Attributes', 'controlled-chaos-plugin' ),
-            'parent_item_colon'     => __( 'Parent Custom Post', 'controlled-chaos-plugin' ),
+		$labels = [
+			'name'                  => __( 'Films', 'ty-plugin' ),
+			'singular_name'         => __( 'Film Project', 'ty-plugin' ),
+			'menu_name'             => __( 'Films', 'ty-plugin' ),
+			'all_items'             => __( 'All Films', 'ty-plugin' ),
+			'add_new'               => __( 'Add New', 'ty-plugin' ),
+			'add_new_item'          => __( 'Add New Film Project', 'ty-plugin' ),
+			'edit_item'             => __( 'Edit Project', 'ty-plugin' ),
+			'new_item'              => __( 'New Film Project', 'ty-plugin' ),
+			'view_item'             => __( 'View Project', 'ty-plugin' ),
+			'view_items'            => __( 'View Films', 'ty-plugin' ),
+			'search_items'          => __( 'Search Films', 'ty-plugin' ),
+			'not_found'             => __( 'No Films Found', 'ty-plugin' ),
+			'not_found_in_trash'    => __( 'No Films Found in Trash', 'ty-plugin' ),
+			'featured_image'        => __( 'Featured image for this project', 'ty-plugin' ),
+			'set_featured_image'    => __( 'Set featured image for this project', 'ty-plugin' ),
+			'remove_featured_image' => __( 'Remove featured image for this project', 'ty-plugin' ),
+			'use_featured_image'    => __( 'Use as featured image for this project', 'ty-plugin' ),
+			'archives'              => __( 'Film archives', 'ty-plugin' ),
+			'insert_into_item'      => __( 'Insert into Project', 'ty-plugin' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this Project', 'ty-plugin' ),
+			'filter_items_list'     => __( 'Filter Films', 'ty-plugin' ),
+			'items_list_navigation' => __( 'Films list navigation', 'ty-plugin' ),
+			'items_list'            => __( 'Films list', 'ty-plugin' ),
+			'attributes'            => __( 'Film Attributes', 'ty-plugin' ),
+			'parent_item_colon'     => __( 'Parent Project', 'ty-plugin' ),
+		];
+
+		$args = [
+			'label'               => __( 'Films', 'ty-plugin' ),
+			'labels'              => $labels,
+			'description'         => __( '', 'ty-plugin' ),
+			'public'              => true,
+			'publicly_queryable'  => true,
+			'show_ui'             => true,
+			'show_in_rest'        => false,
+			'rest_base'           => '',
+			'has_archive'         => true,
+			'show_in_menu'        => true,
+			'exclude_from_search' => false,
+			'capability_type'     => 'post',
+			'map_meta_cap'        => true,
+			'hierarchical'        => false,
+			'rewrite'             => [
+				'slug'       => 'films',
+				'with_front' => true
+			],
+			'query_var'           => true,
+			'menu_position'       => 5,
+			'menu_icon'           => 'dashicons-format-video',
+			'supports'            => [
+				'title',
+				'page-attributes',
+				'thumbnail'
+			]
         ];
 
-        // Apply a filter to labels for customization.
-        $labels = apply_filters( 'ccp_post_type_labels', $labels );
+		register_post_type(
+            'films',
+            $args
+        );
 
-        $options = [
-            'label'               => __( 'Custom Posts', 'controlled-chaos-plugin' ),
-            'labels'              => $labels,
-            'description'         => __( 'Custom post type description.', 'controlled-chaos-plugin' ),
-            'public'              => true,
-            'publicly_queryable'  => true,
-            'show_ui'             => true,
-            'show_in_rest'        => false,
-            'rest_base'           => 'ccp_post_type_rest_api',
-            'has_archive'         => true,
-            'show_in_menu'        => true,
-            'exclude_from_search' => false,
-            'capability_type'     => 'post',
-            'map_meta_cap'        => true,
-            'hierarchical'        => false,
-            'rewrite'             => [
-                'slug'       => 'custom-posts',
-                'with_front' => true
-            ],
-            'query_var'           => 'ccp_post_type',
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-admin-post',
-            'supports'            => [
-                'title',
-                'editor',
-                'thumbnail',
-                'excerpt',
-                'trackbacks',
-                'custom-fields',
-                'comments',
-                'revisions',
-                'author',
-                'page-attributes',
-                'post-formats'
-            ],
-            'taxonomies'          => [
-                'category',
-                'post_tag',
-                'ccp_taxonomy' // Change to your custom taxonomy name.
-            ],
-        ];
+		/**
+		 * Post Type: Television.
+		 */
 
-        // Apply a filter to arguments for customization.
-        $options = apply_filters( 'ccp_post_type_args', $options );
+		$labels = [
+			'name'                  => __( 'Television', 'ty-plugin' ),
+			'singular_name'         => __( 'TV Show', 'ty-plugin' ),
+			'menu_name'             => __( 'Television', 'ty-plugin' ),
+			'all_items'             => __( 'All TV Shows', 'ty-plugin' ),
+			'add_new'               => __( 'Add New', 'ty-plugin' ),
+			'add_new_item'          => __( 'Add New TV Show', 'ty-plugin' ),
+			'edit_item'             => __( 'Edit TV Show', 'ty-plugin' ),
+			'new_item'              => __( 'New TV Show', 'ty-plugin' ),
+			'view_item'             => __( 'View TV Show', 'ty-plugin' ),
+			'view_items'            => __( 'View TV Shows', 'ty-plugin' ),
+			'search_items'          => __( 'Search TV Shows', 'ty-plugin' ),
+			'not_found'             => __( 'No Shows Found', 'ty-plugin' ),
+			'not_found_in_trash'    => __( 'No Shows Found in Trash', 'ty-plugin' ),
+			'featured_image'        => __( 'Featured image for this show', 'ty-plugin' ),
+			'set_featured_image'    => __( 'Set featured image for this show', 'ty-plugin' ),
+			'remove_featured_image' => __( 'Remove featured image for this show', 'ty-plugin' ),
+			'use_featured_image'    => __( 'Use as featured image for this show', 'ty-plugin' ),
+			'archives'              => __( 'Television archives', 'ty-plugin' ),
+			'insert_into_item'      => __( 'Insert into Show', 'ty-plugin' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this Show', 'ty-plugin' ),
+			'filter_items_list'     => __( 'Filter Shows', 'ty-plugin' ),
+			'items_list_navigation' => __( 'Television list navigation', 'ty-plugin' ),
+			'items_list'            => __( 'Television list', 'ty-plugin' ),
+			'attributes'            => __( 'Show Attributes', 'ty-plugin' ),
+			'parent_item_colon'     => __( 'Parent Show', 'ty-plugin' ),
+		];
 
-        /**
-         * Register the post type
-         *
-         * Maximum 20 characters, cannot contain capital letters or spaces.
-         */
-        register_post_type(
-            'ccp_post_type',
-            $options
+		$args = [
+			'label'               => __( 'Television', 'ty-plugin' ),
+			'labels'              => $labels,
+			'description'         => __( '', 'ty-plugin' ),
+			'public'              => true,
+			'publicly_queryable'  => true,
+			'show_ui'             => true,
+			'show_in_rest'        => false,
+			'rest_base'           => '',
+			'has_archive'         => true,
+			'show_in_menu'        => true,
+			'exclude_from_search' => false,
+			'capability_type'     => 'post',
+			'map_meta_cap'        => true,
+			'hierarchical'        => false,
+			'rewrite'             => [
+				'slug'       => 'television',
+				'with_front' => true
+			],
+			'query_var'           => true,
+			'menu_position'       => 5,
+			'menu_icon'           => 'dashicons-desktop',
+			'supports'            => [
+				'title',
+				'page-attributes',
+				'thumbnail'
+			]
+		];
+		register_post_type(
+            'television',
+            $args
         );
 
     }
@@ -155,4 +189,4 @@ final class Post_Types_Register {
 }
 
 // Run the class.
-$ccp_post_types = new Post_Types_Register;
+$typ_post_types = new Post_Types_Register;

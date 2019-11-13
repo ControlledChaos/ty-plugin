@@ -1,86 +1,11 @@
 <?php
 /**
- * Controlled Chaos Plugin
+ * Toby Yates Plugin
  *
- * @package     Controlled_Chaos_Plugin
- * @version     1.0.0
- * @author      Greg Sweet <greg@ccdzine.com>
- * @copyright   Copyright © 2018, Greg Sweet
- * @link        https://github.com/ControlledChaos/controlled-chaos-plugin
- * @link        https://controlledchaos.github.io/controlled-chaos-plugin/
- * @license     GPL-3.0+ http://www.gnu.org/licenses/gpl-3.0.txt
+ * @package    TY_Plugin
  *
- * Plugin Name:  Controlled Chaos Plugin
- * Plugin URI:   https://github.com/ControlledChaos/controlled-chaos-plugin
- * Description:  A WordPress starter/boilerplate for site-specific plugins.
- * Version:      1.0.0
- * Author:       Controlled Chaos Design
- * Author URI:   http://ccdzine.com/
- * License:      GPL-3.0+
- * License URI:  https://www.gnu.org/licenses/gpl.txt
- * Text Domain:  controlled-chaos-plugin
- * Domain Path:  /languages
- * Tested up to: 5.0.0
- */
-
-/**
- * License & Warranty
- *
- * Controlled Chaos Plugin is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * any later version.
- *
- * Controlled Chaos Plugin is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Controlled Chaos Plugin. If not, see {URI to Plugin License}.
- */
-
-/**
- * Renaming the plugin
- *
- * First change the name of this file to reflect the new name of your plugin.
- *
- * Next change the information above in the plugin header and either change
- * the plugin name in the License & Warranty notice or remove it.
- *
- * Following is a list of strings to find and replace in all plugin files.
- *
- * 1. Plugin name
- *    Find `Controlled_Chaos_Plugin` and replace with your plugin name, include
- *    underscores between words. This will change the primary plugin class name
- *    and the package name in file headers.
- *
- * 2. Namespace
- *    Find `CC_Plugin` and replace with something unique to your plugin name,
- *    include underscores between words.
- *
- * 3. Text domain
- *    Find controlled-chaos-plugin and replace with the new name of your
- *    primary plugin file (this file).
- *
- * 4. Constants prefix
- *    Find `CCP` and replace with something unique to your plugin name. Use
- *    only uppercase letters.
- *
- * 5. General prefix
- *    Find `ccp` and replace with something unique to your plugin name. Use
- *    only lowercase letters. This will change the prefix of all filters and
- *    settings, and the prefix of functions outside of a class.
- *
- * 6. Author
- *    Find `Greg Sweet <greg@ccdzine.com>` and replace with your name and
- *    email address or those of your organization.
- *
- * Finally, remember to modify or remove the instructional information in
- * admin pages, including contextual help tabs.
- *
- * @see admin\partials - Check all files.
- * @see admin\partials\help - Check all files.
+ * @since      1.0.0
+ * @author     Greg Sweet <greg@ccdzine.com>
  */
 
 // If this file is called directly, abort.
@@ -99,8 +24,8 @@ if ( ! defined( 'WPINC' ) ) {
  */
 
 // First check for other classes with the same name.
-if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
-	final class Controlled_Chaos_Plugin {
+if ( ! class_exists( 'TY_Plugin' ) ) :
+	final class TY_Plugin {
 
 		/**
 		 * Instance of the class
@@ -165,8 +90,8 @@ if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
 			 * @since  1.0.0
 			 * @return string Returns the latest plugin version.
 			 */
-			if ( ! defined( 'CCP_VERSION' ) ) {
-				define( 'CCP_VERSION', '1.0.0' );
+			if ( ! defined( 'TYP_VERSION' ) ) {
+				define( 'TYP_VERSION', '1.0.0' );
 			}
 
 			/**
@@ -177,30 +102,8 @@ if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
 			 *
 			 * @todo   Replace all strings with constant.
 			 */
-			if ( ! defined( 'CCP_DOMAIN' ) ) {
-				define( 'CCP_DOMAIN', 'controlled-chaos-plugin' );
-			}
-
-			/**
-			 * Plugin folder path
-			 *
-			 * @since  1.0.0
-			 * @return string Returns the filesystem directory path (with trailing slash)
-			 *                for the plugin __FILE__ passed in.
-			 */
-			if ( ! defined( 'CCP_PATH' ) ) {
-				define( 'CCP_PATH', plugin_dir_path( __FILE__ ) );
-			}
-
-			/**
-			 * Plugin folder URL
-			 *
-			 * @since  1.0.0
-			 * @return string Returns the URL directory path (with trailing slash)
-			 *                for the plugin __FILE__ passed in.
-			 */
-			if ( ! defined( 'CCP_URL' ) ) {
-				define( 'CCP_URL', plugin_dir_url( __FILE__ ) );
+			if ( ! defined( 'TYP_DOMAIN' ) ) {
+				define( 'TYP_DOMAIN', 'ty-plugin' );
 			}
 
 			/**
@@ -209,14 +112,14 @@ if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
 			 * This URL slug is used for various plugin admin & settings pages.
 			 *
 			 * The prefix will change in your search & replace in renaming the plugin.
-			 * Change the second part of the define(), here as 'controlled-chaos-plugin',
+			 * Change the second part of the define(), here as 'ty-plugin',
 			 * to your preferred page slug.
 			 *
 			 * @since  1.0.0
 			 * @return string Returns the URL slug of the admin pages.
 			 */
-			if ( ! defined( 'CCP_ADMIN_SLUG' ) ) {
-				define( 'CCP_ADMIN_SLUG', 'controlled-chaos-plugin' );
+			if ( ! defined( 'TYP_ADMIN_SLUG' ) ) {
+				define( 'TYP_ADMIN_SLUG', 'ty-plugin' );
 			}
 
 			/**
@@ -227,9 +130,9 @@ if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
 			 * @since  1.0.0
 			 * @return string Returns the URL of the image.
 			 */
-			if ( ! defined( 'CCP_DEFAULT_META_IMAGE' ) ) {
+			if ( ! defined( 'TYP_DEFAULT_META_IMAGE' ) ) {
 				define(
-					'CCP_DEFAULT_META_IMAGE',
+					'TYP_DEFAULT_META_IMAGE',
 					plugins_url( 'frontend/assets/images/default-meta-image.jpg', __FILE__ )
 				);
 			}
@@ -246,7 +149,7 @@ if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
 		public function __clone() {
 
 			// Cloning instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, __( 'This is not allowed.', 'controlled-chaos-plugin' ), '1.0.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This is not allowed.', 'ty-plugin' ), '1.0.0' );
 
 		}
 
@@ -260,7 +163,7 @@ if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
 		public function __wakeup() {
 
 			// Unserializing instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, __( 'This is not allowed.', 'controlled-chaos-plugin' ), '1.0.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This is not allowed.', 'ty-plugin' ), '1.0.0' );
 
 		}
 
@@ -274,13 +177,13 @@ if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
 		private function dependencies() {
 
 			// The hub of all other dependency files.
-			require_once CCP_PATH . 'includes/class-init.php';
+			require_once TYP_PATH . 'includes/class-init.php';
 
 			// Include the activation class.
-			require_once CCP_PATH . 'includes/class-activate.php';
+			require_once TYP_PATH . 'includes/class-activate.php';
 
 			// Include the deactivation class.
-			require_once CCP_PATH . 'includes/class-deactivate.php';
+			require_once TYP_PATH . 'includes/class-deactivate.php';
 
 		}
 
@@ -292,22 +195,22 @@ if ( ! class_exists( 'Controlled_Chaos_Plugin' ) ) :
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return object Returns the instance of the `Controlled_Chaos_Plugin` class.
+	 * @return object Returns the instance of the `TY_Plugin` class.
 	 */
-	function ccp_plugin() {
+	function typ_plugin() {
 
-		return Controlled_Chaos_Plugin::instance();
+		return TY_Plugin::instance();
 
 	}
 
 	// Begin plugin functionality.
-	ccp_plugin();
+	typ_plugin();
 
 // End the check for the plugin class.
 endif;
 
 // Bail out now if the core class was not run.
-if ( ! function_exists( 'ccp_plugin' ) ) {
+if ( ! function_exists( 'typ_plugin' ) ) {
 	return;
 }
 
@@ -318,8 +221,8 @@ if ( ! function_exists( 'ccp_plugin' ) ) {
  * @access public
  * @return void
  */
-register_activation_hook( __FILE__, '\ccp_activate_plugin' );
-register_deactivation_hook( __FILE__, '\ccp_deactivate_plugin' );
+register_activation_hook( __FILE__, '\typ_activate_plugin' );
+register_deactivation_hook( __FILE__, '\typ_deactivate_plugin' );
 
 /**
  * The code that runs during plugin activation.
@@ -328,10 +231,10 @@ register_deactivation_hook( __FILE__, '\ccp_deactivate_plugin' );
  * @access public
  * @return void
  */
-function ccp_activate_plugin() {
+function typ_activate_plugin() {
 
 	// Run the activation class.
-	ccp_activate();
+	typ_activate();
 
 }
 
@@ -342,10 +245,10 @@ function ccp_activate_plugin() {
  * @access public
  * @return void
  */
-function ccp_deactivate_plugin() {
+function typ_deactivate_plugin() {
 
 	// Run the deactivation class.
-	ccp_deactivate();
+	typ_deactivate();
 
 }
 
@@ -369,7 +272,7 @@ function ccp_deactivate_plugin() {
  *                 Returns an array of the about link with the default plugin links.
  * @link   https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
  */
-function ccp_about_link( $links ) {
+function typ_about_link( $links ) {
 
 	/**
 	 * Site about page link depends on the admin menu setting.
@@ -381,10 +284,10 @@ function ccp_about_link( $links ) {
 	if ( is_admin() ) {
 
 		// If Advanced Custom Fields is active.
-		if ( ccp_acf_options() ) {
+		if ( typ_acf_options() ) {
 
 			// Get the field.
-			$acf_position = get_field( 'ccp_site_plugin_link_position', 'option' );
+			$acf_position = get_field( 'typ_site_plugin_link_position', 'option' );
 
 			// Return true if the field is set to `top`.
 			if ( 'top' == $acf_position ) {
@@ -399,21 +302,21 @@ function ccp_about_link( $links ) {
 		} else {
 
 			// Get the field.
-			$position = get_option( 'ccp_site_plugin_link_position' );
+			$position = get_option( 'typ_site_plugin_link_position' );
 		}
 
 		if ( true == $position ) {
-			$url = admin_url( 'index.php?page=' . CCP_ADMIN_SLUG . '-settings' );
+			$url = admin_url( 'index.php?page=' . TYP_ADMIN_SLUG . '-settings' );
 		} else {
-			$url = admin_url( 'admin.php?page=' . CCP_ADMIN_SLUG . '-settings' );
+			$url = admin_url( 'admin.php?page=' . TYP_ADMIN_SLUG . '-settings' );
 		}
 
 		// Create new settings link array as a variable.
 		$about_page = [
 			sprintf(
-				'<a href="%1s" class="' . CCP_ADMIN_SLUG . '-page-link">%2s</a>',
-				admin_url( 'plugins.php?page=' . CCP_ADMIN_SLUG . '-page' ),
-				esc_attr( 'Documentation', 'controlled-chaos-plugin' )
+				'<a href="%1s" class="' . TYP_ADMIN_SLUG . '-page-link">%2s</a>',
+				admin_url( 'plugins.php?page=' . TYP_ADMIN_SLUG . '-page' ),
+				esc_attr( 'Documentation', 'ty-plugin' )
 			),
 		];
 
@@ -424,7 +327,7 @@ function ccp_about_link( $links ) {
 
 }
 // Filter the default settings links with new array.
-add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'ccp_about_link' );
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'typ_about_link' );
 
 /**
  * Add links to the plugin settings pages on the plugins page.
@@ -441,7 +344,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'ccp_about_lin
  *                 Returns an array of custom links with the default plugin links.
  * @link   https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
  */
-function ccp_settings_links( $links, $file ) {
+function typ_settings_links( $links, $file ) {
 
 	if ( is_admin() ) {
 
@@ -453,10 +356,10 @@ function ccp_settings_links( $links, $file ) {
 		 */
 
 		// If Advanced Custom Fields is active.
-		if ( ccp_acf_options() ) {
+		if ( typ_acf_options() ) {
 
 			// Get the field.
-			$acf_position = get_field( 'ccp_settings_link_position', 'option' );
+			$acf_position = get_field( 'typ_settings_link_position', 'option' );
 
 			// Return true if the field is set to `top`.
 			if ( 'top' == $acf_position ) {
@@ -471,35 +374,35 @@ function ccp_settings_links( $links, $file ) {
 		} else {
 
 			// Get the field.
-			$position = get_option( 'ccp_site_settings_position' );
+			$position = get_option( 'typ_site_settings_position' );
 		}
 
 		if ( $position || true == $position ) {
-			$url = admin_url( 'admin.php?page=' . CCP_ADMIN_SLUG . '-settings' );
+			$url = admin_url( 'admin.php?page=' . TYP_ADMIN_SLUG . '-settings' );
 		} else {
-			$url = admin_url( 'index.php?page=' . CCP_ADMIN_SLUG . '-settings' );
+			$url = admin_url( 'index.php?page=' . TYP_ADMIN_SLUG . '-settings' );
 		}
 
 		if ( $file == plugin_basename( __FILE__ ) ) {
 
 			// Add links to settings pages.
 			$links[] = sprintf(
-				'<a href="%1s" class="' . CCP_ADMIN_SLUG . '-settings-link">%2s</a>',
+				'<a href="%1s" class="' . TYP_ADMIN_SLUG . '-settings-link">%2s</a>',
 				$url,
-				esc_attr( 'Site Settings', 'controlled-chaos-plugin' )
+				esc_attr( 'Site Settings', 'ty-plugin' )
 			);
 			$links[] = sprintf(
-				'<a href="%1s" class="' . CCP_ADMIN_SLUG . '-scripts-link">%2s</a>',
-				admin_url( 'options-general.php?page=' . CCP_ADMIN_SLUG . '-scripts' ),
-				esc_attr( 'Script Options', 'controlled-chaos-plugin' )
+				'<a href="%1s" class="' . TYP_ADMIN_SLUG . '-scripts-link">%2s</a>',
+				admin_url( 'options-general.php?page=' . TYP_ADMIN_SLUG . '-scripts' ),
+				esc_attr( 'Script Options', 'ty-plugin' )
 			);
 
 			// Add a placeholder for an upgrade link.
 			$links[] = sprintf(
-				'<a href="%1s" title="%2s" class="' . CCP_ADMIN_SLUG . '-upgrade-link" style="color: #888; cursor: default;">%3s</a>',
+				'<a href="%1s" title="%2s" class="' . TYP_ADMIN_SLUG . '-upgrade-link" style="color: #888; cursor: default;">%3s</a>',
 				''/* Add upgrade URL here */,
-				__( 'Upgrade not available', 'controlled-chaos-plugin' ),
-				esc_attr( 'Upgrade', 'controlled-chaos-plugin' )
+				__( 'Upgrade not available', 'ty-plugin' ),
+				esc_attr( 'Upgrade', 'ty-plugin' )
 			);
 
 		}
@@ -510,7 +413,7 @@ function ccp_settings_links( $links, $file ) {
 	}
 
 }
-add_filter( 'plugin_row_meta', 'ccp_settings_links', 10, 2 );
+add_filter( 'plugin_row_meta', 'typ_settings_links', 10, 2 );
 
 /**
  * Check if WordPress is 5.0 or greater.
@@ -519,7 +422,7 @@ add_filter( 'plugin_row_meta', 'ccp_settings_links', 10, 2 );
  * @access public
  * @return bool Returns true if the WordPress version is 5.0 or greater.
  */
-function ccp_new_cms() {
+function typ_new_cms() {
 
 	// Get the WordPress version.
 	$version = get_bloginfo( 'version' );
@@ -539,7 +442,7 @@ function ccp_new_cms() {
  * @access public
  * @return bool Returns true if ClassicPress is running.
  */
-function ccp_classicpress() {
+function typ_classicpress() {
 
 	if ( function_exists( 'classicpress_version' ) ) {
 		return true;
@@ -556,7 +459,7 @@ function ccp_classicpress() {
  * @access public
  * @return bool Returns true if the ACF free or Pro plugin is active.
  */
-function ccp_acf() {
+function typ_acf() {
 
 	if ( class_exists( 'acf' ) ) {
 		return true;
@@ -573,7 +476,7 @@ function ccp_acf() {
  * @access public
  * @return bool Returns true if the ACF Pro plugin is active.
  */
-function ccp_acf_pro() {
+function typ_acf_pro() {
 
 	if ( class_exists( 'acf_pro' ) ) {
 		return true;
@@ -591,7 +494,7 @@ function ccp_acf_pro() {
  * @return bool Returns true if ACF 4.0 free plus the
  *              Options Page addon or Pro plugin is active.
  */
-function ccp_acf_options() {
+function typ_acf_options() {
 
 	if ( class_exists( 'acf_pro' ) ) {
 		return true;

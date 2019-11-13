@@ -2,7 +2,7 @@
 /**
  * Settings fields for site development.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    TY_Plugin
  * @subpackage Admin
  *
  * @since      1.0.0
@@ -12,7 +12,7 @@
  * @todo       Finish converting the debug plugin to work with a setting.
  */
 
-namespace CC_Plugin\Plugin_Admin;
+namespace TY_Plugin\Plugin_Admin;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -80,90 +80,90 @@ class Settings_Fields_Dev_Tools {
 
 		// Site development settings section.
 		add_settings_section(
-			'ccp-site-development-general',
-			__( 'General Website Development', 'controlled-chaos-plugin' ),
+			'typ-site-development-general',
+			__( 'General Website Development', 'ty-plugin' ),
 			[ $this, 'site_development_section_callback' ],
-			'ccp-site-development-general'
+			'typ-site-development-general'
 		);
 
 		// Site development settings field.
 		add_settings_field(
-			'ccp_site_development',
-			__( 'Debug Mode', 'controlled-chaos-plugin' ),
-			[ $this, 'ccp_site_development_callback' ],
-			'ccp-site-development-general',
-			'ccp-site-development-general',
-			[ esc_html__( 'Put the site in Debug Mode via wp-config.', 'controlled-chaos-plugin' ) ]
+			'typ_site_development',
+			__( 'Debug Mode', 'ty-plugin' ),
+			[ $this, 'typ_site_development_callback' ],
+			'typ-site-development-general',
+			'typ-site-development-general',
+			[ esc_html__( 'Put the site in Debug Mode via wp-config.', 'ty-plugin' ) ]
 		);
 
 		// Register the Site development field.
 		register_setting(
-			'ccp-site-development-general',
-			'ccp_site_development'
+			'typ-site-development-general',
+			'typ_site_development'
 		);
 
 		// Live theme test settings field.
 		add_settings_field(
-			'ccp_theme_test',
-			__( 'Live Theme Test', 'controlled-chaos-plugin' ),
-			[ $this, 'ccp_theme_test_callback' ],
-			'ccp-site-development-general',
-			'ccp-site-development-general',
-			[ esc_html__( 'Find the theme test page under Appearances.', 'controlled-chaos-plugin' ) ]
+			'typ_theme_test',
+			__( 'Live Theme Test', 'ty-plugin' ),
+			[ $this, 'typ_theme_test_callback' ],
+			'typ-site-development-general',
+			'typ-site-development-general',
+			[ esc_html__( 'Find the theme test page under Appearances.', 'ty-plugin' ) ]
 		);
 
 		// Register the live theme test field.
 		register_setting(
-			'ccp-site-development-general',
-			'ccp_theme_test'
+			'typ-site-development-general',
+			'typ_theme_test'
 		);
 
 		// Customizer reset settings field.
 		add_settings_field(
-			'ccp_customizer_reset',
-			__( 'Customizer Reset', 'controlled-chaos-plugin' ),
-			[ $this, 'ccp_customizer_reset_callback' ],
-			'ccp-site-development-general',
-			'ccp-site-development-general',
-			[ esc_html__( 'Add a reset button to the Customizer for getting a fresh start.', 'controlled-chaos-plugin' ) ]
+			'typ_customizer_reset',
+			__( 'Customizer Reset', 'ty-plugin' ),
+			[ $this, 'typ_customizer_reset_callback' ],
+			'typ-site-development-general',
+			'typ-site-development-general',
+			[ esc_html__( 'Add a reset button to the Customizer for getting a fresh start.', 'ty-plugin' ) ]
 		);
 
 		// Register the Customizer reset field.
 		register_setting(
-			'ccp-site-development-general',
-			'ccp_customizer_reset'
+			'typ-site-development-general',
+			'typ_customizer_reset'
 		);
 
 		// Database reset settings field.
 		add_settings_field(
-			'ccp_database_reset',
-			__( 'Database Reset', 'controlled-chaos-plugin' ),
-			[ $this, 'ccp_database_reset_callback' ],
-			'ccp-site-development-general',
-			'ccp-site-development-general',
-			[ esc_html__( 'Add a tool to reset select tables or all of the database.', 'controlled-chaos-plugin' ) ]
+			'typ_database_reset',
+			__( 'Database Reset', 'ty-plugin' ),
+			[ $this, 'typ_database_reset_callback' ],
+			'typ-site-development-general',
+			'typ-site-development-general',
+			[ esc_html__( 'Add a tool to reset select tables or all of the database.', 'ty-plugin' ) ]
 		);
 
 		// Register the database reset field.
 		register_setting(
-			'ccp-site-development-general',
-			'ccp_database_reset'
+			'typ-site-development-general',
+			'typ_database_reset'
 		);
 
 		// RTL (right to left) test settings field.
 		add_settings_field(
-			'ccp_rtl_test',
-			__( 'RTL (Right to Left) Test', 'controlled-chaos-plugin' ),
-			[ $this, 'ccp_rtl_test_callback' ],
-			'ccp-site-development-general',
-			'ccp-site-development-general',
-			[ esc_html__( 'Add RTL button to the toolbar to test layout in languages that read right to left.', 'controlled-chaos-plugin' ) ]
+			'typ_rtl_test',
+			__( 'RTL (Right to Left) Test', 'ty-plugin' ),
+			[ $this, 'typ_rtl_test_callback' ],
+			'typ-site-development-general',
+			'typ-site-development-general',
+			[ esc_html__( 'Add RTL button to the toolbar to test layout in languages that read right to left.', 'ty-plugin' ) ]
 		);
 
 		// Register the RTL test field.
 		register_setting(
-			'ccp-site-development-general',
-			'ccp_rtl_test'
+			'typ-site-development-general',
+			'typ_rtl_test'
 		);
 
 	}
@@ -180,7 +180,7 @@ class Settings_Fields_Dev_Tools {
 
 		$html = sprintf(
 			'<p>%1s</p>',
-			esc_html__( '', 'controlled-chaos-plugin' )
+			esc_html__( '', 'ty-plugin' )
 		);
 
 		echo $html;
@@ -195,12 +195,12 @@ class Settings_Fields_Dev_Tools {
 	 * @param  array $args Holds the settings field array.
 	 * @return string Returns the field HTML.
 	 */
-	public function ccp_site_development_callback( $args ) {
+	public function typ_site_development_callback( $args ) {
 
-		$option = get_option( 'ccp_site_development' );
+		$option = get_option( 'typ_site_development' );
 
-		$html   = '<p><input type="checkbox" id="ccp_site_development" name="ccp_site_development" value="1" ' . checked( 1, $option, false ) . '/>';
-		$html  .= '<label for="ccp_site_development"> '  . $args[0] . '</label></p>';
+		$html   = '<p><input type="checkbox" id="typ_site_development" name="typ_site_development" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html  .= '<label for="typ_site_development"> '  . $args[0] . '</label></p>';
 
 		echo $html;
 
@@ -214,13 +214,13 @@ class Settings_Fields_Dev_Tools {
 	 * @param  array $args Holds the settings field array.
 	 * @return string Returns the field HTML.
 	 */
-	public function ccp_theme_test_callback( $args ) {
+	public function typ_theme_test_callback( $args ) {
 
-		$option = get_option( 'ccp_theme_test' );
+		$option = get_option( 'typ_theme_test' );
 
-		$html   = '<p><input type="checkbox" id="ccp_theme_test" name="ccp_theme_test" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html   = '<p><input type="checkbox" id="typ_theme_test" name="typ_theme_test" value="1" ' . checked( 1, $option, false ) . '/>';
 		$html  .= sprintf(
-			'<label for="ccp_theme_test">%1s</label></p>',
+			'<label for="typ_theme_test">%1s</label></p>',
 			$args[0]
 		 );
 
@@ -236,13 +236,13 @@ class Settings_Fields_Dev_Tools {
 	 * @param  array $args Holds the settings field array.
 	 * @return string Returns the field HTML.
 	 */
-	public function ccp_customizer_reset_callback( $args ) {
+	public function typ_customizer_reset_callback( $args ) {
 
-		$option = get_option( 'ccp_customizer_reset' );
+		$option = get_option( 'typ_customizer_reset' );
 
-		$html   = '<p><input type="checkbox" id="ccp_customizer_reset" name="ccp_customizer_reset" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html   = '<p><input type="checkbox" id="typ_customizer_reset" name="typ_customizer_reset" value="1" ' . checked( 1, $option, false ) . '/>';
 		$html  .= sprintf(
-			'<label for="ccp_customizer_reset">%1s</label></p>',
+			'<label for="typ_customizer_reset">%1s</label></p>',
 			$args[0]
 		 );
 
@@ -258,13 +258,13 @@ class Settings_Fields_Dev_Tools {
 	 * @param  array $args Holds the settings field array.
 	 * @return string Returns the field HTML.
 	 */
-	public function ccp_database_reset_callback( $args ) {
+	public function typ_database_reset_callback( $args ) {
 
-		$option = get_option( 'ccp_database_reset' );
+		$option = get_option( 'typ_database_reset' );
 
-		$html   = '<p><input type="checkbox" id="ccp_database_reset" name="ccp_database_reset" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html   = '<p><input type="checkbox" id="typ_database_reset" name="typ_database_reset" value="1" ' . checked( 1, $option, false ) . '/>';
 		$html  .= sprintf(
-			'<label for="ccp_database_reset">%1s</label></p>',
+			'<label for="typ_database_reset">%1s</label></p>',
 			$args[0]
 		 );
 
@@ -280,16 +280,16 @@ class Settings_Fields_Dev_Tools {
 	 * @param  array $args Holds the settings field array.
 	 * @return string Returns the field HTML.
 	 */
-	public function ccp_rtl_test_callback( $args ) {
+	public function typ_rtl_test_callback( $args ) {
 
-		$option = get_option( 'ccp_rtl_test' );
+		$option = get_option( 'typ_rtl_test' );
 
-		$html   = '<p><input type="checkbox" id="ccp_rtl_test" name="ccp_rtl_test" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html   = '<p><input type="checkbox" id="typ_rtl_test" name="typ_rtl_test" value="1" ' . checked( 1, $option, false ) . '/>';
 		$html  .= sprintf(
-			'<label for="ccp_rtl_test">%1s</label> <a href="%2s" target="_blank" class="tooltip" title="%3s"><span class="dashicons dashicons-editor-help"></span></a></p>',
+			'<label for="typ_rtl_test">%1s</label> <a href="%2s" target="_blank" class="tooltip" title="%3s"><span class="dashicons dashicons-editor-help"></span></a></p>',
 			$args[0],
 			esc_url( 'https://codex.wordpress.org/Right_to_Left_Language_Support' ),
-			__( 'Read more in the WordPress Codex (also applies to ClassicPress)', 'controlled-chaos-plugin' )
+			__( 'Read more in the WordPress Codex (also applies to ClassicPress)', 'ty-plugin' )
 		 );
 
 		echo $html;
@@ -305,11 +305,11 @@ class Settings_Fields_Dev_Tools {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_settings_fields_dev_tools() {
+function typ_settings_fields_dev_tools() {
 
 	return Settings_Fields_Dev_Tools::instance();
 
 }
 
 // Run an instance of the class.
-ccp_settings_fields_dev_tools();
+typ_settings_fields_dev_tools();

@@ -7,7 +7,7 @@
  * @link       http://ccdzine.com
  * @since      1.0.0
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    TY_Plugin
  * @subpackage Includes
  */
 
@@ -22,7 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
  * @since  1.0.0
  * @access public
  */
-class Controlled_Chaos_Deactivate {
+class TY_Deactivate {
 
 	/**
 	 * Instance of the class
@@ -79,8 +79,8 @@ class Controlled_Chaos_Deactivate {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_deactivate() {
+function typ_deactivate() {
 
-	return Controlled_Chaos_Deactivate::instance();
+	return TY_Deactivate::instance();
 
 }

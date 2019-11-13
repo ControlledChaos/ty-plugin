@@ -4,7 +4,7 @@
  *
  * This file must not be namespaced.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    TY_Plugin
  * @subpackage Includes
  *
  * @since      1.0.0
@@ -22,7 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
  * @since  1.0.0
  * @access public
  */
-class Controlled_Chaos_Activate {
+class TY_Activate {
 
 	/**
 	 * Instance of the class
@@ -79,8 +79,8 @@ class Controlled_Chaos_Activate {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_activate() {
+function typ_activate() {
 
-	return Controlled_Chaos_Activate::instance();
+	return TY_Activate::instance();
 
 }
