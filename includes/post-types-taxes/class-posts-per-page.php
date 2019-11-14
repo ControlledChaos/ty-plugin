@@ -351,9 +351,9 @@ class Posts_Per_Page {
 			<tr>
 				<th><?php echo $this_post_data->labels->name; ?></th>
 				<td>
-					<label for="typ_ppp_post_type_count[<?php echo esc_attr( $p ); ?>]"><?php _e( 'First Page:', 'tims' ); ?> </label> <input id="typ_ppp_post_type_count[<?php echo esc_attr( $p ); ?>]" name="typ_ppp_options[<?php echo esc_attr( $p ); ?>_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ $p . '_count' ] ); ?>" />
+					<label for="typ_ppp_post_type_count[<?php echo esc_attr( $p ); ?>]"><?php _e( 'First Page:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_post_type_count[<?php echo esc_attr( $p ); ?>]" name="typ_ppp_options[<?php echo esc_attr( $p ); ?>_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ $p . '_count' ] ); ?>" />
 					&nbsp;
-					<label for="typ_ppp_post_type_count[<?php echo esc_attr( $p ); ?>]"><?php _e( 'Subsequent Pages:', 'tims' ); ?></label> <input id="typ_ppp_post_type_count[<?php echo esc_attr( $p ); ?>]" name="typ_ppp_options[<?php echo esc_attr( $p ); ?>_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ $p . '_count_paged' ] ); ?>" />
+					<label for="typ_ppp_post_type_count[<?php echo esc_attr( $p ); ?>]"><?php _e( 'Subsequent Pages:', 'ty-plugin' ); ?></label> <input id="typ_ppp_post_type_count[<?php echo esc_attr( $p ); ?>]" name="typ_ppp_options[<?php echo esc_attr( $p ); ?>_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ $p . '_count_paged' ] ); ?>" />
 				</td>
 			</tr>
 			<?php
@@ -373,9 +373,9 @@ class Posts_Per_Page {
 		$typ_ppp_options = get_option( 'typ_ppp_options', [ 'front_count' => 0, 'front_count_paged' => 0 ] );
 
 		?>
-		<label for="typ_ppp_index_count[0]"><?php _e( 'First Page:', 'tims' ); ?> </label> <input id="typ_ppp_index_count[0]" name="typ_ppp_options[front_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'front_count' ] ); ?>" />
+		<label for="typ_ppp_index_count[0]"><?php _e( 'First Page:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_index_count[0]" name="typ_ppp_options[front_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'front_count' ] ); ?>" />
 		&nbsp;
-		<label for="typ_ppp_index_count[1]"><?php _e( 'Subsequent Pages:', 'tims' ); ?> </label> <input id="typ_ppp_index_count[1]" name="typ_ppp_options[front_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'front_count_paged' ] ); ?>" />
+		<label for="typ_ppp_index_count[1]"><?php _e( 'Subsequent Pages:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_index_count[1]" name="typ_ppp_options[front_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'front_count_paged' ] ); ?>" />
 		<?php
 	}
 
@@ -391,9 +391,9 @@ class Posts_Per_Page {
 		$typ_ppp_options = get_option( 'typ_ppp_options', [ 'category_count' => 0, 'category_count_paged' => 0 ] );
 
 		?>
-		<label for="typ_ppp_category_count[0]"><?php _e( 'First Page:', 'tims' ); ?> </label> <input id="typ_ppp_category_count[0]" name="typ_ppp_options[category_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'category_count' ] ); ?>" />
+		<label for="typ_ppp_category_count[0]"><?php _e( 'First Page:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_category_count[0]" name="typ_ppp_options[category_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'category_count' ] ); ?>" />
 		&nbsp;
-		<label for="typ_ppp_category_count[1]"><?php _e( 'Subsequent Pages:', 'tims' ); ?> </label> <input id="typ_ppp_category_count[1]" name="typ_ppp_options[category_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'category_count_paged' ] ); ?>" />
+		<label for="typ_ppp_category_count[1]"><?php _e( 'Subsequent Pages:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_category_count[1]" name="typ_ppp_options[category_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'category_count_paged' ] ); ?>" />
 		<?php
 	}
 
@@ -409,9 +409,9 @@ class Posts_Per_Page {
 		$typ_ppp_options = get_option( 'typ_ppp_options', [ 'archive_count' => 0, 'archive_count_paged' => 0 ] );
 
 		?>
-		<label for="typ_ppp_archive_count[0]"><?php _e( 'First Page:', 'tims' ); ?> </label> <input id="typ_ppp_archive_count[0]" name="typ_ppp_options[archive_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'archive_count' ] ); ?>" />
+		<label for="typ_ppp_archive_count[0]"><?php _e( 'First Page:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_archive_count[0]" name="typ_ppp_options[archive_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'archive_count' ] ); ?>" />
 		&nbsp;
-		<label for="typ_ppp_archive_count[1]"><?php _e( 'Subsequent Pages:', 'tims' ); ?> </label> <input id="typ_ppp_archive_count[1]" name="typ_ppp_options[archive_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'archive_count_paged' ] ); ?>" />
+		<label for="typ_ppp_archive_count[1]"><?php _e( 'Subsequent Pages:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_archive_count[1]" name="typ_ppp_options[archive_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'archive_count_paged' ] ); ?>" />
 		<?php
 	}
 
@@ -427,9 +427,9 @@ class Posts_Per_Page {
 		$typ_ppp_options = get_option( 'typ_ppp_options', [ 'tag_count' => 0, 'tag_count_paged' => 0 ] );
 
 		?>
-		<label for="typ_ppp_tag_count[0]"><?php _e( 'First Page:', 'tims' ); ?> </label> <input id="typ_ppp_tag_count[0]" name="typ_ppp_options[tag_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'tag_count' ] ); ?>" />
+		<label for="typ_ppp_tag_count[0]"><?php _e( 'First Page:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_tag_count[0]" name="typ_ppp_options[tag_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'tag_count' ] ); ?>" />
 		&nbsp;
-		<label for="typ_ppp_tag_count[1]"><?php _e( 'Subsequent Pages:', 'tims' ); ?> </label> <input id="typ_ppp_tag_count[1]" name="typ_ppp_options[tag_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'tag_count_paged' ] ); ?>" />
+		<label for="typ_ppp_tag_count[1]"><?php _e( 'Subsequent Pages:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_tag_count[1]" name="typ_ppp_options[tag_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'tag_count_paged' ] ); ?>" />
 		<?php
 	}
 
@@ -445,9 +445,9 @@ class Posts_Per_Page {
 		$typ_ppp_options = get_option( 'typ_ppp_options', [ 'author_count' => 0, 'author_count_paged' => 0 ] );
 
 		?>
-		<label for="typ_ppp_author_count[0]"><?php _e( 'First Page:', 'tims' ); ?> </label> <input id="typ_ppp_author_count[0]" name="typ_ppp_options[author_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'author_count' ] ); ?>" />
+		<label for="typ_ppp_author_count[0]"><?php _e( 'First Page:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_author_count[0]" name="typ_ppp_options[author_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'author_count' ] ); ?>" />
 		&nbsp;
-		<label for="typ_ppp_author_count[1]"><?php _e( 'Subsequent Pages:', 'tims' ); ?> </label> <input id="typ_ppp_author_count[1]" name="typ_ppp_options[author_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'author_count_paged' ] ); ?>" />
+		<label for="typ_ppp_author_count[1]"><?php _e( 'Subsequent Pages:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_author_count[1]" name="typ_ppp_options[author_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'author_count_paged' ] ); ?>" />
 		<?php
 	}
 
@@ -463,9 +463,9 @@ class Posts_Per_Page {
 		$typ_ppp_options = get_option( 'typ_ppp_options', [ 'search_count' => 0, 'search_count_paged' => 0 ] );
 
 		?>
-		<label for="typ_ppp_search_count[0]"><?php _e( 'First Page:', 'tims' ); ?> </label> <input id="typ_ppp_search_count[0]" name="typ_ppp_options[search_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'search_count' ] ); ?>" />
+		<label for="typ_ppp_search_count[0]"><?php _e( 'First Page:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_search_count[0]" name="typ_ppp_options[search_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'search_count' ] ); ?>" />
 		&nbsp;
-		<label for="typ_ppp_search_count[1]"><?php _e( 'Subsequent Pages:', 'tims' ); ?> </label> <input id="typ_ppp_search_count[1]" name="typ_ppp_options[search_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'search_count_paged' ] ); ?>" />
+		<label for="typ_ppp_search_count[1]"><?php _e( 'Subsequent Pages:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_search_count[1]" name="typ_ppp_options[search_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'search_count_paged' ] ); ?>" />
 		<?php
 	}
 
@@ -481,9 +481,9 @@ class Posts_Per_Page {
 		$typ_ppp_options = get_option( 'typ_ppp_options', [ 'default_count' => 0, 'default_count_paged' => 0 ] );
 
 		?>
-		<label for="typ_ppp_default_count[0]"><?php _e( 'First Page:', 'tims' ); ?> </label> <input id="typ_ppp_default_count[0]" name="typ_ppp_options[default_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'default_count' ] ); ?>" />
+		<label for="typ_ppp_default_count[0]"><?php _e( 'First Page:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_default_count[0]" name="typ_ppp_options[default_count]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'default_count' ] ); ?>" />
 		&nbsp;
-		<label for="typ_ppp_default_count[1]"><?php _e( 'Subsequent Pages:', 'tims' ); ?> </label> <input id="typ_ppp_default_count[1]" name="typ_ppp_options[default_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'default_count_paged' ] ); ?>" />
+		<label for="typ_ppp_default_count[1]"><?php _e( 'Subsequent Pages:', 'ty-plugin' ); ?> </label> <input id="typ_ppp_default_count[1]" name="typ_ppp_options[default_count_paged]" size="3" type="text" value="<?php echo esc_attr( $typ_ppp_options[ 'default_count_paged' ] ); ?>" />
 		<?php
 	}
 

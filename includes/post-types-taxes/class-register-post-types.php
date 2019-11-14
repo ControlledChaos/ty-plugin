@@ -115,7 +115,7 @@ final class Post_Types_Register {
         ];
 
 		register_post_type(
-            'films',
+            'film',
             $args
         );
 
