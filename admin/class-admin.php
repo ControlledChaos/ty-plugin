@@ -412,10 +412,16 @@ class Admin {
 		 *
 		 * @since 1.0.0
 		 */
-		$welcome = get_option( 'typ_custom_welcome' );
-		if ( $welcome ) {
-			wp_enqueue_style( TYP_ADMIN_SLUG . '-welcome', TYP_URL . 'admin/assets/css/welcome.css', [], TYP_VERSION, 'all' );
+		if ( typ_acf_pro() ) {
+			$welcome = get_field( 'typ_custom_welcome', 'option' );
+		} else {
+			$welcome = get_option( 'typ_custom_welcome' );
 		}
+
+		if ( $welcome ) {
+			wp_enqueue_style( TYP_ADMIN_SLUG . '-welcome', TYP_URL . 'admin/assets/css/welcome.min.css', [], TYP_VERSION, 'all' );
+		}
+		// wp_enqueue_style( TYP_ADMIN_SLUG . '-welcome', TYP_URL . 'admin/assets/css/welcome.min.css', [], TYP_VERSION, 'all' );
 
 	}
 

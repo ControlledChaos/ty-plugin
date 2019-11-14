@@ -65,6 +65,7 @@ class Media {
 
 		// Add image sizes.
 		add_action( 'init', [ $this, 'image_sizes' ] );
+		remove_action( 'plugins_loaded', '_wp_add_additional_image_sizes', 0 );
 
 		// Add image sizes to insert media UI.
 		add_filter( 'image_size_names_choose', [ $this, 'insert_custom_image_sizes' ] );
