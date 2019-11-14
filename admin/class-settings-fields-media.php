@@ -77,31 +77,24 @@ class Settings_Fields_Media {
         /**
          * Image crop settings.
          */
-        add_settings_field( 'typ_hard_crop_medium', __( 'Medium size crop', 'ty-plugin' ), [ $this, 'medium_crop' ], 'media', 'default', [ __( 'Crop thumbnail to exact dimensions (normally thumbnails are proportional)', 'ty-plugin' ) ] );
 
-        add_settings_field( 'typ_hard_crop_large', __( 'Large size crop', 'ty-plugin' ), [ $this, 'large_crop' ], 'media', 'default', [ __( 'Crop thumbnail to exact dimensions (normally thumbnails are proportional)', 'ty-plugin' ) ] );
+		// Check for the Manage Image Sizes plugin.
+		if ( ! class_exists( 'Manage_Image_Sizes' ) ) {
 
-        register_setting(
-            'media',
-            'typ_hard_crop_medium'
-        );
+			add_settings_field( 'typ_hard_crop_medium', __( 'Medium size crop', 'ty-plugin' ), [ $this, 'medium_crop' ], 'media', 'default', [ __( 'Crop thumbnail to exact dimensions (normally thumbnails are proportional)', 'ty-plugin' ) ] );
 
-        register_setting(
-            'media',
-            'typ_hard_crop_large'
-        );
+			add_settings_field( 'typ_hard_crop_large', __( 'Large size crop', 'ty-plugin' ), [ $this, 'large_crop' ], 'media', 'default', [ __( 'Crop thumbnail to exact dimensions (normally thumbnails are proportional)', 'ty-plugin' ) ] );
 
-        /**
-         * SVG options.
-         */
-        add_settings_section( 'typ-svg-settings', __( 'SVG Images', 'ty-plugin' ), [ $this, 'svg_notice' ], 'media' );
+			register_setting(
+				'media',
+				'typ_hard_crop_medium'
+			);
 
-        add_settings_field( 'typ_add_svg_support', __( 'SVG Support', 'ty-plugin' ), [ $this, 'svg_support' ], 'media', 'typ-svg-settings', [ __( 'Add ability to upload SVG images to the media library.', 'ty-plugin' ) ] );
-
-        register_setting(
-            'media',
-            'typ_add_svg_support'
-        );
+			register_setting(
+				'media',
+				'typ_hard_crop_large'
+			);
+		}
 
         /**
          * Fancybox settings.
@@ -182,40 +175,6 @@ class Settings_Fields_Media {
         } else {
             update_option( 'large_crop', 0 );
         }
-
-    }
-
-    /**
-     * Add warning about using SVG images.
-     *
-     * @since  1.0.0
-	 * @access public
-	 * @return string
-     */
-    public function svg_notice() {
-
-        $html = sprintf( '<p>%1s</p>', esc_html__( 'Use SVG images with caution! Only add support if you trust or examine each SVG file that you upload.', 'ty-plugin' ) );
-
-        echo $html;
-
-    }
-
-    /**
-     * SVG options.
-     *
-     * @since  1.0.0
-	 * @access public
-	 * @return string
-     *
-     * @since    1.0.0
-     */
-    public function svg_support( $args ) {
-
-        $html = '<p><input type="checkbox" id="typ_add_svg_support" name="typ_add_svg_support" value="1" ' . checked( 1, get_option( 'typ_add_svg_support' ), false ) . '/>';
-
-        $html .= '<label for="typ_add_svg_support"> '  . $args[0] . '</label></p>';
-
-        echo $html;
 
     }
 

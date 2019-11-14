@@ -218,10 +218,18 @@ class Admin_Pages {
     public function title_placeholders( $title ) {
 
         // Get the current screen as a variable.
-        $screen = get_current_screen();
+		$screen = get_current_screen();
+
+		// Film type: post.
+        if ( 'film' == $screen->post_type ) {
+			$post_title = esc_html__( 'Film Title', 'ty-plugin' );
+
+		// PTelevision type: post.
+		} elseif ( 'television' == $screen->post_type ) {
+            $post_title = esc_html__( 'Show Title', 'ty-plugin' );
 
         // Post type: post.
-        if ( 'post' == $screen->post_type ) {
+		} elseif ( 'post' == $screen->post_type ) {
             $post_title = esc_html__( 'Post Title', 'ty-plugin' );
 
         // Post type: page.
