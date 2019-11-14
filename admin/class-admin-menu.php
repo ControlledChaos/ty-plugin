@@ -58,7 +58,10 @@ class Admin_Menu {
     public function __construct() {
 
         // Remove menu items.
-        add_action( 'admin_menu', [ $this, 'hide' ] );
+		add_action( 'admin_menu', [ $this, 'hide' ] );
+
+		// Remove Posts & Comments from the menu.
+        add_action('admin_menu', [ $this, 'post_remove' ] );
 
         // Hide ACF field groups UI.
         if ( typ_acf_options() ) {
@@ -174,6 +177,18 @@ class Admin_Menu {
             }
 
         }
+
+	}
+
+	/**
+     * Remove Posts & Comments from the menu as they are not used.
+     *
+     * @since    1.0.0
+     */
+    public function post_remove () {
+
+        remove_menu_page( 'edit.php' );
+        remove_menu_page( 'edit-comments.php' );
 
     }
 
