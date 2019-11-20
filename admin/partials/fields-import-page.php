@@ -3,8 +3,8 @@
  * Field import page.
  *
  * @package    TY_Plugin
- * @subpackage controlled-chaos
- * @since controlled-chaos 1.0.0
+ * @subpackage ty-plugin
+ * @since ty-plugin 1.0.0
  */
 
 namespace TY_Plugin\Fields_Import_Page;

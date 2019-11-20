@@ -3,7 +3,7 @@
  * Site settings page field groups.
  *
  * @package    TY_Plugin
- * @subpackage controlled-chaos\admin
+ * @subpackage ty-plugin\admin
  * @since      1.0.0
  */
 

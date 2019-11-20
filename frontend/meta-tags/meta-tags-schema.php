@@ -4,7 +4,7 @@
  *
  * @package    TY_Plugin
  * @subpackage Frontend\Meta_Tags
- * @since      controlled-chaos 1.0.0
+ * @since      ty-plugin 1.0.0
  */
 
 namespace TY_Plugin\Frontend\Meta_Tags;
