@@ -104,7 +104,7 @@ class Suhrstedt_Contact_Page_Fields {
 						'name'              => 'typ_agency',
 						'type'              => 'repeater',
 						'instructions'      => '',
-						'required' => 1,
+						'required'          => 0,
 						'conditional_logic' => 0,
 						'wrapper'           => [
 							'width' => '',
@@ -123,7 +123,7 @@ class Suhrstedt_Contact_Page_Fields {
 								'name'              => 'typ_agency_name',
 								'type'              => 'text',
 								'instructions'      => '',
-								'required' => 1,
+								'required'          => 1,
 								'conditional_logic' => 0,
 								'wrapper'           => [
 									'width' => '',
@@ -204,7 +204,7 @@ class Suhrstedt_Contact_Page_Fields {
 										'name'              => 'typ_agent_name',
 										'type'              => 'text',
 										'instructions'      => '',
-										'required' => 1,
+										'required'          => 1,
 										'conditional_logic' => 0,
 										'wrapper'           => [
 											'width' => '',
@@ -223,7 +223,7 @@ class Suhrstedt_Contact_Page_Fields {
 										'name'              => 'typ_agent_department',
 										'type'              => 'text',
 										'instructions'      => __( 'Film, TV, Commercial etc.', 'ty-plugin' ),
-										'required' => 1,
+										'required'          => 0,
 										'conditional_logic' => 0,
 										'wrapper'           => [
 											'width' => '',
@@ -242,7 +242,7 @@ class Suhrstedt_Contact_Page_Fields {
 										'name'              => 'typ_agent_phone',
 										'type'              => 'text',
 										'instructions'      => __( 'Use dashes only to make the number a link on mobile devices.', 'ty-plugin' ),
-										'required' => 1,
+										'required'          => 1,
 										'conditional_logic' => 0,
 										'wrapper'           => [
 											'width' => '',
@@ -261,7 +261,7 @@ class Suhrstedt_Contact_Page_Fields {
 										'name'              => 'typ_agent_email',
 										'type'              => 'email',
 										'instructions'      => '',
-										'required' => 1,
+										'required'          => 1,
 										'conditional_logic' => 0,
 										'wrapper'           => [
 											'width' => '',
@@ -295,8 +295,8 @@ class Suhrstedt_Contact_Page_Fields {
 					],
 					[
 						'key'               => 'field_5a537eb83e6c4',
-						'label'             => __( 'Resume Notice', 'ty-plugin' ),
-						'name'              => 'typ_resume_notice',
+						'label'             => __( 'Resume Message', 'ty-plugin' ),
+						'name'              => 'typ_resume_message',
 						'type'              => 'textarea',
 						'instructions'      => __( 'Optional.', 'ty-plugin' ),
 						'required'          => 0,
@@ -318,7 +318,7 @@ class Suhrstedt_Contact_Page_Fields {
 						'name'              => 'typ_resume_type',
 						'type'              => 'button_group',
 						'instructions'      => __( 'Select a method to provide a resume.', 'ty-plugin' ),
-						'required'          => 1,
+						'required'          => 0,
 						'conditional_logic' => 0,
 						'wrapper'           => [
 							'width' => '',
@@ -340,7 +340,7 @@ class Suhrstedt_Contact_Page_Fields {
 						'name'              => 'typ_resume_link',
 						'type'              => 'url',
 						'instructions'      => __( 'Paste the link to your resume.', 'ty-plugin' ),
-						'required'          => 1,
+						'required'          => 0,
 						'conditional_logic' => [
 							[
 								[
@@ -364,7 +364,7 @@ class Suhrstedt_Contact_Page_Fields {
 						'name'              => 'typ_resume_file',
 						'type'              => 'file',
 						'instructions'      => __( 'File will be uploaded to the Media Library', 'ty-plugin' ),
-						'required'          => 1,
+						'required'          => 0,
 						'conditional_logic' => [
 							[
 								[
