@@ -74,7 +74,7 @@ class Enqueue_Frontend_Styles {
 	public function styles() {
 
 		// Non-vendor plugin styles.
-		wp_enqueue_style( TYP_ADMIN_SLUG, TYP_URL . 'assets/css/frontend.css', [], TYP_VERSION, 'all' );
+		wp_enqueue_style( TYP_ADMIN_SLUG, TYP_URL . 'frontend/assets/css/frontend.css', [], TYP_VERSION, 'all' );
 
 		// Fancybox 3.
 		if ( get_option( 'typ_enqueue_fancybox_styles' ) ) {
@@ -86,23 +86,23 @@ class Enqueue_Frontend_Styles {
 			if ( current_theme_supports( 'ccd-fancybox' ) ) {
 				return;
 			} else {
-				wp_enqueue_style( TYP_ADMIN_SLUG . '-fancybox', TYP_URL . 'assets/css/jquery.fancybox.min.css', [], TYP_VERSION, 'all' );
+				wp_enqueue_style( TYP_ADMIN_SLUG . '-fancybox', TYP_URL . 'frontend/assets/css/jquery.fancybox.min.css', [], TYP_VERSION, 'all' );
 			}
 		}
 
 		// Slick.
 		if ( get_option( 'typ_enqueue_slick' ) ) {
-			wp_enqueue_style( TYP_ADMIN_SLUG . '-slick', TYP_URL . 'assets/css/slick.min.css', [], TYP_VERSION, 'all' );
+			wp_enqueue_style( TYP_ADMIN_SLUG . '-slick', TYP_URL . 'frontend/assets/css/slick.min.css', [], TYP_VERSION, 'all' );
 		}
 
 		// Slick theme.
 		if ( get_option( 'typ_enqueue_slick' ) ) {
-			wp_enqueue_style( TYP_ADMIN_SLUG . '-slick-theme', TYP_URL . 'assets/css/slick-theme.css', [], TYP_VERSION, 'all' );
+			wp_enqueue_style( TYP_ADMIN_SLUG . '-slick-theme', TYP_URL . 'frontend/assets/css/slick-theme.css', [], TYP_VERSION, 'all' );
 		}
 
 		// Tooltipster.
 		if ( get_option( 'typ_enqueue_tooltipster' ) ) {
-			wp_enqueue_style( TYP_ADMIN_SLUG . '-tooltipster', TYP_URL . 'assets/css/tooltipster.bundle.min.css', [], TYP_VERSION, 'all' );
+			wp_enqueue_style( TYP_ADMIN_SLUG . '-tooltipster', TYP_URL . 'frontend/assets/css/tooltipster.bundle.min.css', [], TYP_VERSION, 'all' );
 		}
 
 	}
