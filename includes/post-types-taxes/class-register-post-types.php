@@ -54,7 +54,7 @@ final class Post_Types_Register {
     public function register() {
 
         /**
-		 * Post Type: Film+TV.
+		 * Post Type: Film+TV
 		 */
 
 		$labels = [
@@ -120,7 +120,7 @@ final class Post_Types_Register {
         );
 
 		/**
-		 * Post Type: Television.
+		 * Post Type: Television
 		 */
 
 		$labels = [
@@ -181,6 +181,136 @@ final class Post_Types_Register {
 		];
 		register_post_type(
             'television',
+            $args
+		);
+
+		/**
+		 * Post Type: Projects
+		 */
+
+		$labels = [
+			'name'                  => __( 'Projects', 'ty-plugin' ),
+			'singular_name'         => __( 'Project', 'ty-plugin' ),
+			'menu_name'             => __( 'Projects', 'ty-plugin' ),
+			'all_items'             => __( 'All Projects', 'ty-plugin' ),
+			'add_new'               => __( 'Add New', 'ty-plugin' ),
+			'add_new_item'          => __( 'Add New Project', 'ty-plugin' ),
+			'edit_item'             => __( 'Edit Project', 'ty-plugin' ),
+			'new_item'              => __( 'New Project', 'ty-plugin' ),
+			'view_item'             => __( 'View Project', 'ty-plugin' ),
+			'view_items'            => __( 'View Projects', 'ty-plugin' ),
+			'search_items'          => __( 'Search Projects', 'ty-plugin' ),
+			'not_found'             => __( 'No Projects Found', 'ty-plugin' ),
+			'not_found_in_trash'    => __( 'No Projects Found in Trash', 'ty-plugin' ),
+			'featured_image'        => __( 'Featured image for this project', 'ty-plugin' ),
+			'set_featured_image'    => __( 'Set featured image for this project', 'ty-plugin' ),
+			'remove_featured_image' => __( 'Remove featured image for this project', 'ty-plugin' ),
+			'use_featured_image'    => __( 'Use as featured image for this project', 'ty-plugin' ),
+			'archives'              => __( 'Projects archives', 'ty-plugin' ),
+			'insert_into_item'      => __( 'Insert into Project', 'ty-plugin' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this Project', 'ty-plugin' ),
+			'filter_items_list'     => __( 'Filter Projects', 'ty-plugin' ),
+			'items_list_navigation' => __( 'Projects list navigation', 'ty-plugin' ),
+			'items_list'            => __( 'Projects list', 'ty-plugin' ),
+			'attributes'            => __( 'Project Attributes', 'ty-plugin' ),
+			'parent_item_colon'     => __( 'Parent Project', 'ty-plugin' ),
+		];
+
+		$args = [
+			'label'               => __( 'Projects', 'ty-plugin' ),
+			'labels'              => $labels,
+			'description'         => __( '', 'ty-plugin' ),
+			'public'              => true,
+			'publicly_queryable'  => true,
+			'project_ui'             => true,
+			'project_in_rest'        => false,
+			'rest_base'           => '',
+			'has_archive'         => true,
+			'project_in_menu'        => true,
+			'exclude_from_search' => false,
+			'capability_type'     => 'post',
+			'map_meta_cap'        => true,
+			'hierarchical'        => false,
+			'rewrite'             => [
+				'slug'       => 'projects',
+				'with_front' => true
+			],
+			'query_var'           => true,
+			'menu_position'       => 5,
+			'menu_icon'           => 'dashicons-format-video',
+			'supports'            => [
+				'title',
+				'page-attributes',
+				'thumbnail'
+			]
+		];
+		register_post_type(
+            'project',
+            $args
+		);
+
+		/**
+		 * Post Type: Clips
+		 */
+
+		$labels = [
+			'name'                  => __( 'Clips', 'ty-plugin' ),
+			'singular_name'         => __( 'Clip', 'ty-plugin' ),
+			'menu_name'             => __( 'Clips', 'ty-plugin' ),
+			'all_items'             => __( 'All Clips', 'ty-plugin' ),
+			'add_new'               => __( 'Add New', 'ty-plugin' ),
+			'add_new_item'          => __( 'Add New Clip', 'ty-plugin' ),
+			'edit_item'             => __( 'Edit Clip', 'ty-plugin' ),
+			'new_item'              => __( 'New Clip', 'ty-plugin' ),
+			'view_item'             => __( 'View Clip', 'ty-plugin' ),
+			'view_items'            => __( 'View Clips', 'ty-plugin' ),
+			'search_items'          => __( 'Search Clips', 'ty-plugin' ),
+			'not_found'             => __( 'No Clips Found', 'ty-plugin' ),
+			'not_found_in_trash'    => __( 'No Clips Found in Trash', 'ty-plugin' ),
+			'featured_image'        => __( 'Featured image for this clip', 'ty-plugin' ),
+			'set_featured_image'    => __( 'Set featured image for this clip', 'ty-plugin' ),
+			'remove_featured_image' => __( 'Remove featured image for this clip', 'ty-plugin' ),
+			'use_featured_image'    => __( 'Use as featured image for this clip', 'ty-plugin' ),
+			'archives'              => __( 'Clips archives', 'ty-plugin' ),
+			'insert_into_item'      => __( 'Insert into Clip', 'ty-plugin' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this Clip', 'ty-plugin' ),
+			'filter_items_list'     => __( 'Filter Clips', 'ty-plugin' ),
+			'items_list_navigation' => __( 'Clips list navigation', 'ty-plugin' ),
+			'items_list'            => __( 'Clips list', 'ty-plugin' ),
+			'attributes'            => __( 'Clip Attributes', 'ty-plugin' ),
+			'parent_item_colon'     => __( 'Parent Clip', 'ty-plugin' ),
+		];
+
+		$args = [
+			'label'               => __( 'Clips', 'ty-plugin' ),
+			'labels'              => $labels,
+			'description'         => __( '', 'ty-plugin' ),
+			'public'              => true,
+			'publicly_queryable'  => true,
+			'clip_ui'             => true,
+			'clip_in_rest'        => false,
+			'rest_base'           => '',
+			'has_archive'         => true,
+			'clip_in_menu'        => true,
+			'exclude_from_search' => false,
+			'capability_type'     => 'post',
+			'map_meta_cap'        => true,
+			'hierarchical'        => false,
+			'rewrite'             => [
+				'slug'       => 'clips',
+				'with_front' => true
+			],
+			'query_var'           => true,
+			'menu_position'       => 5,
+			'menu_icon'           => 'dashicons-paperclip',
+			'supports'            => [
+				'title',
+				'page-attributes',
+				'thumbnail'
+			]
+		];
+		register_post_type(
+            'clip',
             $args
         );
 

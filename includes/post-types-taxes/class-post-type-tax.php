@@ -97,8 +97,7 @@ class Post_Types_Taxes {
 		 * Only if ACF Pro is activated.
 		 */
 		if ( class_exists( 'acf_pro' ) ) {
-			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-film.php';
-			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-television.php';
+			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-project.php';
 			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-resume-contact.php';
 			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-contact.php';
 			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-project-media.php';

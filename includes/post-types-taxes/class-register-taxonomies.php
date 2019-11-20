@@ -1,6 +1,6 @@
 <?php
 /**
- * Register taxonomies.
+ * Register types.
  *
  * @package    TY_Plugin
  * @subpackage Includes\Post_Types_Taxes
@@ -19,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Register taxonomies.
+ * Register types.
  *
  * @since  1.0.0
  * @access public
@@ -35,13 +35,13 @@ final class Taxes_Register {
 	 */
 	public function __construct() {
 
-        // Register custom taxonomies.
+        // Register custom types.
 		add_action( 'init', [ $this, 'register' ] );
 
 	}
 
     /**
-     * Register custom taxonomies.
+     * Register custom types.
      *
      * @since  1.0.0
 	 * @access public
@@ -50,55 +50,49 @@ final class Taxes_Register {
     public function register() {
 
         /**
-         * Taxonomy: Sample taxonomy (Taxonomy).
-         *
-         * Renaming:
-         * Search case "Taxonomy" and replace with your post type singular name.
-         * Search case "Taxonomies" and replace with your post type plural name.
-         * Search case "typ_taxonomy" and replace with your taxonomy database name.
-         * Search case "taxonomies" and replace with your taxonomy permalink slug.
+         * Taxonomy: Project Type
          */
 
         $labels = [
-            'name'                       => __( 'Taxonomies', 'ty-plugin' ),
-            'singular_name'              => __( 'Taxonomy', 'ty-plugin' ),
-            'menu_name'                  => __( 'Taxonomy', 'ty-plugin' ),
-            'all_items'                  => __( 'All Taxonomies', 'ty-plugin' ),
-            'edit_item'                  => __( 'Edit Taxonomy', 'ty-plugin' ),
-            'view_item'                  => __( 'View Taxonomy', 'ty-plugin' ),
-            'update_item'                => __( 'Update Taxonomy', 'ty-plugin' ),
-            'add_new_item'               => __( 'Add New Taxonomy', 'ty-plugin' ),
-            'new_item_name'              => __( 'New Taxonomy', 'ty-plugin' ),
-            'parent_item'                => __( 'Parent Taxonomy', 'ty-plugin' ),
-            'parent_item_colon'          => __( 'Parent Taxonomy', 'ty-plugin' ),
-            'popular_items'              => __( 'Popular Taxonomies', 'ty-plugin' ),
-            'separate_items_with_commas' => __( 'Separate Taxonomies with commas', 'ty-plugin' ),
-            'add_or_remove_items'        => __( 'Add or Remove Taxonomies', 'ty-plugin' ),
-            'choose_from_most_used'      => __( 'Choose from the most used Taxonomies', 'ty-plugin' ),
-            'not_found'                  => __( 'No Taxonomies Found', 'ty-plugin' ),
-            'no_terms'                   => __( 'No Taxonomies', 'ty-plugin' ),
-            'items_list_navigation'      => __( 'Taxonomies List Navigation', 'ty-plugin' ),
-            'items_list'                 => __( 'Taxonomies List', 'ty-plugin' )
+            'name'                       => __( 'Types', 'ty-plugin' ),
+            'singular_name'              => __( 'Type', 'ty-plugin' ),
+            'menu_name'                  => __( 'Type', 'ty-plugin' ),
+            'all_items'                  => __( 'All Types', 'ty-plugin' ),
+            'edit_item'                  => __( 'Edit Type', 'ty-plugin' ),
+            'view_item'                  => __( 'View Type', 'ty-plugin' ),
+            'update_item'                => __( 'Update Type', 'ty-plugin' ),
+            'add_new_item'               => __( 'Add New Type', 'ty-plugin' ),
+            'new_item_name'              => __( 'New Type', 'ty-plugin' ),
+            'parent_item'                => __( 'Parent Type', 'ty-plugin' ),
+            'parent_item_colon'          => __( 'Parent Type', 'ty-plugin' ),
+            'popular_items'              => __( 'Popular Types', 'ty-plugin' ),
+            'separate_items_with_commas' => __( 'Separate Types with commas', 'ty-plugin' ),
+            'add_or_remove_items'        => __( 'Add or Remove Types', 'ty-plugin' ),
+            'choose_from_most_used'      => __( 'Choose from the most used Types', 'ty-plugin' ),
+            'not_found'                  => __( 'No Types Found', 'ty-plugin' ),
+            'no_terms'                   => __( 'No Types', 'ty-plugin' ),
+            'items_list_navigation'      => __( 'Types List Navigation', 'ty-plugin' ),
+            'items_list'                 => __( 'Types List', 'ty-plugin' )
         ];
 
         $options = [
-            'label'              => __( 'Taxonomies', 'ty-plugin' ),
+            'label'              => __( 'Types', 'ty-plugin' ),
             'labels'             => $labels,
             'public'             => true,
             'hierarchical'       => false,
-            'label'              => 'Taxonomies',
+            'label'              => 'Types',
             'show_ui'            => true,
             'show_in_menu'       => true,
             'show_in_nav_menus'  => true,
             'query_var'          => true,
             'rewrite'            => [
-                'slug'         => 'taxonomies',
+                'slug'         => 'types',
                 'with_front'   => true,
                 'hierarchical' => false,
             ],
             'show_admin_column'  => true,
             'show_in_rest'       => true,
-            'rest_base'          => 'taxonomies',
+            'rest_base'          => 'types',
             'show_in_quick_edit' => true
         ];
 
@@ -106,9 +100,10 @@ final class Taxes_Register {
          * Register the taxonomy
          */
         register_taxonomy(
-            'typ_taxonomy',
+            'project_type',
             [
-                'typ_post_type' // Change to your post type name.
+				'project',
+				'clip'
             ],
             $options
         );
