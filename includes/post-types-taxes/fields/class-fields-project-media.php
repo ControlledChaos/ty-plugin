@@ -2,12 +2,14 @@
 /**
  * Project media attachment fields.
  *
- * @package WordPress
- * @subpackage ty-plugin
- * @since ty-plugin 1.0.0
+ * @package    TY_Plugin
+ * @subpackage Includes\Post_Types_Taxes
+ *
+ * @since      1.0.0
+ * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace TimS_Plugin;
+namespace TY_Plugin\Includes\Post_Types_Taxes;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -17,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Project media attachment fields.
  */
-class Suhrstedt_Project_Media_Fields {
+class TY_Project_Media_Fields {
 
 	/**
 	 * Initialize the class and set its properties.
@@ -174,4 +176,4 @@ class Suhrstedt_Project_Media_Fields {
 
 }
 
-$typ_plugin_project_media_fields = new Suhrstedt_Project_Media_Fields;
+$typ_plugin_project_media_fields = new TY_Project_Media_Fields;

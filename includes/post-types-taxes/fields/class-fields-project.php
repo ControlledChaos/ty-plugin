@@ -2,12 +2,14 @@
 /**
  * Film + TV post type fields.
  *
- * @package WordPress
- * @subpackage ty-plugin
- * @since ty-plugin 1.0.0
+ * @package    TY_Plugin
+ * @subpackage Includes\Post_Types_Taxes
+ *
+ * @since      1.0.0
+ * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace TimS_Plugin;
+namespace TY_Plugin\Includes\Post_Types_Taxes;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -17,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Film + TV post type fields.
  */
-class Suhrstedt_Features {
+class TY_Project_Fields {
 
 	/**
 	 * Initialize the class and set its properties.
@@ -34,11 +36,68 @@ class Suhrstedt_Features {
 	}
 
 	/**
-	 * Register fields.
+	 * Get post type context
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed
+	 */
+	public function get_current_post_type() {
+
+		// Access global variables.
+		global $post, $typenow, $current_screen;
+
+		// Return the post type for various scenarios.
+		if ( $post && $post->post_type ) {
+			return $post->post_type;
+		} elseif ( $typenow ) {
+			return $typenow;
+		} elseif ( $current_screen && $current_screen->post_type ) {
+			return $current_screen->post_type;
+		} elseif ( isset( $_REQUEST['post_type'] ) ) {
+			return sanitize_key( $_REQUEST['post_type'] );
+		}
+
+		// Return nothing if conditions aren't met.
+		return null;
+
+	}
+
+	/**
+	 * Register fields
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
 	public function fields() {
 
 		if ( function_exists( 'acf_add_local_field_group' ) ) :
+
+			// Add the Director field for films only.
+			if ( 'film' == $this->get_current_post_type() ) {
+				$director = [
+					'key'               => 'field_5948b2c4f2275',
+					'label'             => __( 'Director', 'ty-plugin' ),
+					'name'              => 'typ_project_director',
+					'type'              => 'text',
+					'instructions'      => __( 'Enter only the name of the director.', 'ty-plugin' ),
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => [
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					],
+					'default_value'     => '',
+					'placeholder'       => '',
+					'prepend'           => '',
+					'append'            => '',
+					'maxlength'         => '',
+				];
+			} else {
+				$director = null;
+			}
 
 			acf_add_local_field_group( [
 				'key'    => 'group_5948b2c4ec0dd-2',
@@ -79,45 +138,7 @@ class Suhrstedt_Features {
 						'append'            => '',
 						'maxlength'         => '',
 					],
-					[
-						'key'               => 'field_5948b2c4f2275',
-						'label'             => __( 'Director', 'ty-plugin' ),
-						'name'              => 'typ_project_director',
-						'type'              => 'text',
-						'instructions'      => __( 'Enter only the name of the director.', 'ty-plugin' ),
-						'required'          => 0,
-						'conditional_logic' => 0,
-						'wrapper'           => [
-							'width' => '',
-							'class' => '',
-							'id'    => '',
-						],
-						'default_value'     => '',
-						'placeholder'       => '',
-						'prepend'           => '',
-						'append'            => '',
-						'maxlength'         => '',
-					],
-
-					[
-						'key'               => 'field_59825e49192ba',
-						'label'             => __( 'Client', 'ty-plugin' ),
-						'name'              => 'typ_project_client',
-						'type'              => 'text',
-						'instructions'      => __( 'Enter only the name of the production company.', 'ty-plugin' ),
-						'required'          => 0,
-						'conditional_logic' => 0,
-						'wrapper'           => [
-							'width' => '',
-							'class' => '',
-							'id'    => '',
-						],
-						'default_value'     => '',
-						'placeholder'       => '',
-						'prepend'           => '',
-						'append'            => '',
-						'maxlength'         => '',
-					],
+					$director,
 					[
 						'key'               => 'field_5948b4fe4177e',
 						'label'             => __( 'IMDb Page', 'ty-plugin' ),
@@ -265,13 +286,6 @@ class Suhrstedt_Features {
 							'operator' => '==',
 							'value'    => 'television',
 						],
-					],
-					[
-						[
-							'param'    => 'post_type',
-							'operator' => '==',
-							'value'    => 'project',
-						],
 					]
 				],
 				'menu_order'            => 0,
@@ -296,7 +310,7 @@ class Suhrstedt_Features {
 					13 => 'featured_image'
 				],
 				'active'      => 1,
-				'description' => __( 'For the Project post type.', 'ty-plugin' ),
+				'description' => __( 'For Film and Television post types.', 'ty-plugin' ),
 			] );
 
 		endif;
@@ -305,4 +319,4 @@ class Suhrstedt_Features {
 
 }
 
-$typ_plugin_features_fields = new Suhrstedt_Features;
+$typ_plugin_project_fields = new TY_Project_Fields;

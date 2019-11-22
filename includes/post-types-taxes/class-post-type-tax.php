@@ -98,6 +98,7 @@ class Post_Types_Taxes {
 		 */
 		if ( class_exists( 'acf_pro' ) ) {
 			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-project.php';
+			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-clip.php';
 			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-resume-contact.php';
 			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-contact.php';
 			require TYP_PATH . 'includes/post-types-taxes/fields/class-fields-project-media.php';

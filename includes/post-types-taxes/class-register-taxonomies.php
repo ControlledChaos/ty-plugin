@@ -54,33 +54,33 @@ final class Taxes_Register {
          */
 
         $labels = [
-            'name'                       => __( 'Types', 'ty-plugin' ),
-            'singular_name'              => __( 'Type', 'ty-plugin' ),
-            'menu_name'                  => __( 'Type', 'ty-plugin' ),
-            'all_items'                  => __( 'All Types', 'ty-plugin' ),
-            'edit_item'                  => __( 'Edit Type', 'ty-plugin' ),
-            'view_item'                  => __( 'View Type', 'ty-plugin' ),
-            'update_item'                => __( 'Update Type', 'ty-plugin' ),
-            'add_new_item'               => __( 'Add New Type', 'ty-plugin' ),
-            'new_item_name'              => __( 'New Type', 'ty-plugin' ),
-            'parent_item'                => __( 'Parent Type', 'ty-plugin' ),
-            'parent_item_colon'          => __( 'Parent Type', 'ty-plugin' ),
-            'popular_items'              => __( 'Popular Types', 'ty-plugin' ),
-            'separate_items_with_commas' => __( 'Separate Types with commas', 'ty-plugin' ),
-            'add_or_remove_items'        => __( 'Add or Remove Types', 'ty-plugin' ),
-            'choose_from_most_used'      => __( 'Choose from the most used Types', 'ty-plugin' ),
-            'not_found'                  => __( 'No Types Found', 'ty-plugin' ),
-            'no_terms'                   => __( 'No Types', 'ty-plugin' ),
-            'items_list_navigation'      => __( 'Types List Navigation', 'ty-plugin' ),
-            'items_list'                 => __( 'Types List', 'ty-plugin' )
+            'name'                       => __( 'Clip Types', 'ty-plugin' ),
+            'singular_name'              => __( 'Clip Type', 'ty-plugin' ),
+            'menu_name'                  => __( 'Clip Types', 'ty-plugin' ),
+            'all_items'                  => __( 'Clip Types', 'ty-plugin' ),
+            'edit_item'                  => __( 'Edit Clip Type', 'ty-plugin' ),
+            'view_item'                  => __( 'View Clip Type', 'ty-plugin' ),
+            'update_item'                => __( 'Update Clip Type', 'ty-plugin' ),
+            'add_new_item'               => __( 'Add New Clip Type', 'ty-plugin' ),
+            'new_item_name'              => __( 'New Clip Type', 'ty-plugin' ),
+            'parent_item'                => __( 'Parent Clip Type', 'ty-plugin' ),
+            'parent_item_colon'          => __( 'Parent Clip Type', 'ty-plugin' ),
+            'popular_items'              => __( 'Popular Clip Types', 'ty-plugin' ),
+            'separate_items_with_commas' => __( 'Separate Clip Types with commas', 'ty-plugin' ),
+            'add_or_remove_items'        => __( 'Add or Remove Clip Types', 'ty-plugin' ),
+            'choose_from_most_used'      => __( 'Choose from the most used clip types', 'ty-plugin' ),
+            'not_found'                  => __( 'No Clip Types Found', 'ty-plugin' ),
+            'no_terms'                   => __( 'No Clip Types', 'ty-plugin' ),
+            'items_list_navigation'      => __( 'Clip Types List Navigation', 'ty-plugin' ),
+            'items_list'                 => __( 'Clip Types List', 'ty-plugin' )
         ];
 
         $options = [
-            'label'              => __( 'Types', 'ty-plugin' ),
+            'label'              => __( 'Clip Types', 'ty-plugin' ),
             'labels'             => $labels,
             'public'             => true,
             'hierarchical'       => false,
-            'label'              => 'Types',
+            'label'              => 'Clip Types',
             'show_ui'            => true,
             'show_in_menu'       => true,
             'show_in_nav_menus'  => true,
@@ -91,7 +91,7 @@ final class Taxes_Register {
                 'hierarchical' => false,
             ],
             'show_admin_column'  => true,
-            'show_in_rest'       => true,
+            'show_in_rest'       => false,
             'rest_base'          => 'types',
             'show_in_quick_edit' => true
         ];
@@ -100,9 +100,8 @@ final class Taxes_Register {
          * Register the taxonomy
          */
         register_taxonomy(
-            'project_type',
+            'clip_type',
             [
-				'project',
 				'clip'
             ],
             $options
