@@ -1,13 +1,15 @@
 <?php
 /**
- * Basic contact page fields.
+ * Contact & Resume page template fields.
  *
- * @package WordPress
- * @subpackage ty-plugin
- * @since ty-plugin 1.0.0
+ * @package    TY_Plugin
+ * @subpackage Includes\Post_Types_Taxes
+ *
+ * @since      1.0.0
+ * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace TimS_Plugin;
+namespace TY_Plugin\Includes\Post_Types_Taxes;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -15,9 +17,9 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Basic contact page fields.
+ * Contact & Resume page template fields.
  */
-class Suhrstedt_Contact_Page_Fields {
+class TY_Contact_Page_Fields {
 
 	/**
 	 * Initialize the class and set its properties.
@@ -421,7 +423,7 @@ class Suhrstedt_Contact_Page_Fields {
 					10 => 'send-trackbacks',
 				],
 				'active'                => 1,
-				'description'           => __( 'For the Resume & Contact page, page-info page template.', 'ty-plugin' ),
+				'description'           => __( 'For the Contact & Resume page template.', 'ty-plugin' ),
 			] );
 
 		endif;
@@ -430,4 +432,4 @@ class Suhrstedt_Contact_Page_Fields {
 
 }
 
-$typ_plugin_contact_page_fields = new Suhrstedt_Contact_Page_Fields;
+$typ_plugin_contact_page_fields = new TY_Contact_Page_Fields;
