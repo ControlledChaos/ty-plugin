@@ -132,14 +132,19 @@ class Media {
 	public function image_sizes() {
 
 		// For link embedding and sharing on social sites.
-		add_image_size( __( 'meta-image', 'ty-plugin' ), 1200, 630, true );
+		add_image_size( 'meta-image', 1200, 630, true );
 
 		/**
 		 * For use as featured image in admin columns.
 		 *
 		 * @see admin/class-admin-pages.php
 		 */
-		add_image_size( __( 'column-thumbnail', 'ty-plugin' ), 48, 48, true );
+		add_image_size( 'column-thumbnail', 48, 48, true );
+
+		// 2:3 aspect ratio for poster image sizes.
+		add_image_size( 'poster-small', 213, 320, true );
+		add_image_size( 'poster-medium', 426, 640, true );
+		add_image_size( 'poster-large', 853, 1280, true );
 
 	}
 
