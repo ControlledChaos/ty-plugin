@@ -97,7 +97,7 @@ class Enqueue_Frontend_Scripts {
 		}
 
 		// FitVids.
-		wp_enqueue_script( TYP_ADMIN_SLUG . '-fitvids', TYP_URL . 'frontend/assets/js/jquery.fitvids.min.js', [ 'jquery' ], TYP_VERSION, true );
+		wp_enqueue_script( 'fitvids', TYP_URL . 'frontend/assets/js/jquery.fitvids.min.js', [ 'jquery' ], TYP_VERSION, true );
 
 	}
 
