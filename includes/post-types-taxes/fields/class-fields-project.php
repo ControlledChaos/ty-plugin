@@ -172,7 +172,7 @@ class TY_Project_Fields {
 						'placeholder'       => '',
 						'maxlength'         => '',
 						'rows'              => '',
-						'new_lines'         => 'wpautop',
+						'new_lines'         => '',
 					],
 					[
 						'key'               => 'field_598256325eb95',
